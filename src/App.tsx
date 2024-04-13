@@ -19,7 +19,7 @@ function App() {
                     <Route path="/" element={<MainPageLazy />} />
                 </Routes>
             </Suspense>
-            {/* <Counter /> */}
+            <Counter />
         </div>
     )
 }
