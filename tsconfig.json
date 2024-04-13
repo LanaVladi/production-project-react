@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/", // место куда производится сборка, но оно не важно, если есть webpack, там мы уже указали
+    "noImplicitAny": true, // Подсвечивает все места где не указан тип // Однако это не означает, что теперь вовсе нельзя использовать any.
+    // Это означает лишь, что в подобных ситуация разработчик должен явно писать any
+    "module": "ESNext", // указываем модульную систему: commonJS, ES6, AMD, ESNext; на backend можно использовать commonJS
+    "target": "es5", // версия стандарта EcmaScript,  в которую код по итогу будет компилироваться
+    // В какую спецификацию компилируем: для поддержки большинства браузеров
+    "jsx": "react", // чтобы можно было писать react jsx синтаксис
+    "allowJs": true, // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
+    "moduleResolution": "node", // определяет какие будут импорты node / classic
+    "esModuleInterop": true,
+    // esModuleInterop позволяет работать с пакетами, которые используют модуль commomJS как с обычными пакетами
+    // с помощью import (require()) module.exports) = commomJS.
+    // import Moment from 'moment'; Без флага esModuleInterop результат будет undefinded; console.log('Moment');
+    // С флагом esModuleInterop результат будет [object Object]; console.log('Moment');
+    "allowSyntheticDefaultImports": true
+    // Если какая-либо библиотека не имеет default import, // лоадеры вроде ts-loader или babel-loader автоматически создают их
+    // вместо такого импорта
+    // import * as React from 'react';
+    // можно писать такой
+    // import React from 'react';
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    } // Note that you'll also need to check your tsconfig.json file.
+    // If the module in compilerOptions in tsconfig.json is commonjs, the setting is complete, else webpack will fail with an error.
+    // This occurs because ts-node does not support any module syntax other than commonjs.
+  }
+}
