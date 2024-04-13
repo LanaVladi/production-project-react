@@ -1,12 +1,5 @@
-// import { someFunc } from "./test";
-
-// someFunc(5);
-
-// document.body.innerHTML = `<div>HELLO</div>`
-// import React from "react";
-import { render } from "react-dom";
+import { createRoot } from 'react-dom/client';
 import { Counter } from "./components/Counter";
 
-render(<div><Counter /></div>,
-
-    document.getElementById('root'))
+const root = createRoot(document.getElementById('root'));
+root.render(<div><Counter /></div>)
