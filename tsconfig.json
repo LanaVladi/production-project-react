@@ -28,5 +28,10 @@
     } // Note that you'll also need to check your tsconfig.json file.
     // If the module in compilerOptions in tsconfig.json is commonjs, the setting is complete, else webpack will fail with an error.
     // This occurs because ts-node does not support any module syntax other than commonjs.
-  }
+  },
+  "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  // "options": {
+  //   "customTemplate": "./customTemplate.js"
+  // }
+  // "include": ["src", "global.d.ts"],
 }
