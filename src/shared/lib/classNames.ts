@@ -6,7 +6,7 @@ type Modes = Record<string, boolean | string>;
 //     'red': false,
 // }
 
-export function classNames(clss: string, modes: Modes, additional: string[]): string {
+export function classNames(clss: string, modes: Modes = {}, additional: string[] = []): string {
 
     const modesModified = Object.entries(modes)
         .filter(([className, booleanValue]) => Boolean(booleanValue)) //[Array(2), Array(2)] => [ ['hovered', true], ['selectable', true] ]        
@@ -15,7 +15,7 @@ export function classNames(clss: string, modes: Modes, additional: string[]): st
     // console.log('modesModified', modesModified);
 
     return [clss,
-        ...additional,
+        ...additional.filter((Boolean)),
         ...modesModified
     ].join(' ');
 }
