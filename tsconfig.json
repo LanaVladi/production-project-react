@@ -10,6 +10,9 @@
     "allowJs": true, // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "moduleResolution": "node", // определяет какие будут импорты node / classic
     "baseUrl": ".", // для абсолютного импорта
+    "paths": {
+       "*": ["./src/*"] 
+       }, // для абсолютного импорта
     "esModuleInterop": true,
     // esModuleInterop позволяет работать с пакетами, которые используют модуль commomJS как с обычными пакетами
     // с помощью import (require()) module.exports) = commomJS.

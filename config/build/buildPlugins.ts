@@ -1,7 +1,7 @@
 
-import path from "path";
+// import path from "path";
 import webpack from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from "./types/config";
 
@@ -15,5 +15,9 @@ export function buildPlugins({ paths }: BuildOptions): webpack.WebpackPluginInst
         filename: 'css/[name].[contenthash:8].css',
         chunkFilename: 'css/[name].[contenthash:8].css', // когда будем файлы разбивать на асинхронные
 
-    })]
+    }),
+        // new webpack.HotModuleReplacementPlugin(),
+    ]
+
+
 }

@@ -1,4 +1,4 @@
- function MainPage() {
+function MainPage() {
     return (
         <div>MAIN PAGE</div>
     )

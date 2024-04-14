@@ -1,4 +1,4 @@
- function AboutPage() {
+function AboutPage() {
     return (
         <div>ABOUT PAGE</div>
     )
