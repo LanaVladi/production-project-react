@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as styles from './Counter.module.scss';
+// import { button, green } from './Counter.module.scss'; 
 
 function Counter() {
     const [count, setCount] = useState(0);
