@@ -2,6 +2,7 @@ import './/styles/index.scss';
 import { useTheme } from "../app/providers/themeProvider/lib/useTheme";
 import { AppRouter } from './providers/router';
 import { Navbar } from '../widgets/Navbar';
+import { Sidebar } from '../widgets/Sidebar';
 import { classNames } from '../shared/lib/classNames';
 
 function App() {
@@ -10,9 +11,11 @@ function App() {
     return (
         <div className={classNames('app', {}, [theme])}>
             <Navbar />
-
-            <AppRouter />
-        </div>
+            <div className='content-page'>
+                <Sidebar />
+                <AppRouter />
+            </div>
+        </ div>
     )
 }
 
