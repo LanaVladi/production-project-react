@@ -18,6 +18,28 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     }
 
+
+    const babelLoader = {
+        test: /\.(js|jsx|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env']
+            }
+        },
+        "plugins": [
+            ["i18next-extract",
+                {
+                    "locales": ['en', 'ru'], // Locales your project supports
+                    "keyAsDefaultValue": true 
+                    // Description: If true, use the extracted key as defaultValue (ignoring defaultValue option).
+                    //  This is sometimes refered to as "natural keys".
+                }
+            ],
+        ]
+    }
+
     const cssLoader = {
         test: /\.scss$/i, // test: /\.s[ac]ss$/i,
         use: [
@@ -45,9 +67,11 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     }
 
     return [
+        fileLoader,
         svgLoader,
-        typescriptLoader,
+        babelLoader,
+        typescriptLoader, // важен порядок лоадеров, чтение снизу вверх,
+        //  т.к. мы используем ts, то его ставим первым, потом babelLoader, чтобы не было конфликта
         cssLoader,
-        fileLoader
     ]
 }
