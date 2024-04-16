@@ -2,15 +2,9 @@
     height: calc(100vh - var(--navbar-height));
     width: var(--sidebar-width);
     background-color: var(--inverted-bg-color);
-
     position: relative;
     transition: width 0.2s;
 }
-
-// .lang {
-//     background-color: yellow;
-//     font-size: large;
-// }
 
 .collapsed {
     background: wheat;

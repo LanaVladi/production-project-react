@@ -6,6 +6,7 @@ module.exports = {
     extends: [
         'plugin:react/recommended',
         'airbnb',
+        'plugin:i18next/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -18,6 +19,7 @@ module.exports = {
     plugins: [
         'react',
         '@typescript-eslint',
+        'i18next',
     ],
     rules: {
         'react/jsx-indent': [2, 4], // отступы в jsx коде
@@ -36,8 +38,64 @@ module.exports = {
         'import/extensions': 'off', // расширения импортов убираем
         'import/no-extraneous-dependencies': 'off', // Запрещает импорт внешних модулей, которые не объявлены в package.json
         // 'no-underscore-dangle': 'off',
-
+        // 'i18next/no-literal-string': ['error', { markupOnly: true }],
+        // mode?: 'jsx-text-only' | 'jsx-only' | 'all',
+        // Если markupOnly опция включена, будут проверяться только текст и строки JSX, используемые в качестве атрибутов JSX.
     },
+
+    mode: 'jsx-text-only',
+    'jsx-components': {
+        include: [],
+        exclude: ['Trans'],
+    },
+    'jsx-attributes': {
+        include: [],
+        exclude: [
+            'className',
+            'styleName',
+            'style',
+            'type',
+            'key',
+            'id',
+            'width',
+            'height',
+        ],
+    },
+    words: {
+        exclude: [
+            '[0-9!-/:-@[-`{-~]+',
+            '[A-Z_-]+',
+            require('./htmlEntities'),
+            /^\p{Emoji}+$/u,
+        ],
+    },
+    callees: {
+        exclude: [
+            'i18n(ext)?',
+            't',
+            'require',
+            'addEventListener',
+            'removeEventListener',
+            'postMessage',
+            'getElementById',
+            'dispatch',
+            'commit',
+            'includes',
+            'indexOf',
+            'endsWith',
+            'startsWith',
+        ],
+    },
+    'object-properties': {
+        include: [],
+        exclude: ['[A-Z_-]+'],
+    },
+    'class-properties': {
+        include: [],
+        exclude: ['displayName'],
+    },
+    message: 'disallow literal string',
+    'should-validate-template': false,
     globals: {
         GLOBAL_ISDEV: true,
         // Запрещ. исп-ние необъявленных переменных, если они не упомянуты в /*global */комментариях
