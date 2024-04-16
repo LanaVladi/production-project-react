@@ -7,18 +7,17 @@ type Modes = Record<string, boolean | string>;
 // }
 
 export function classNames(clss: string, modes: Modes = {}, additional: string[] = []): string {
-
     const modesModified = Object.entries(modes)
-        .filter(([className, booleanValue]) => Boolean(booleanValue)) //[Array(2), Array(2)] => [ ['hovered', true], ['selectable', true] ]        
-        .map(([className, booleanValue]) => className); // ['hovered', 'selectable']
+        .filter(([_, booleanValue]) => Boolean(booleanValue))
+        // [Array(2), Array(2)] => [ ['hovered', true], ['selectable', true] ]
+        .map(([className]) => className); // ['hovered', 'selectable']
 
     // console.log('modesModified', modesModified);
 
     return [clss,
         ...additional.filter((Boolean)),
-        ...modesModified
+        ...modesModified,
     ].join(' ');
 }
-
 
 classNames('remove-btn', { hovered: true, selectable: true, red: false }, ['padding']); // => 'remove-btn hovered selectable padding'

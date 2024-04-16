@@ -1,9 +1,7 @@
-
-import webpack from "webpack";
-import { BuildOptions } from "./types/config";
+import webpack from 'webpack';
+import { BuildOptions } from './types/config';
 
 export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
-
     return {
         extensions: ['.tsx', '.ts', '.js'],
         // preferAbsolute: true,
@@ -15,5 +13,5 @@ export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
         //     // "events": require.resolve("events/")
         //     "events": false
         //   }
-    }
+    };
 }
