@@ -1,7 +1,9 @@
 import { createRoot } from 'react-dom/client';
-import App from './App';
+// import ReactDOM from 'react-dom';
+import App from './app/App';
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from './theme/ThemeProvider';
+import { ThemeProvider } from './app/providers/themeProvider/ui/ThemeProvider';
+import './shared/config/routerConfig/i18n/i18n'; // важный момент!!!
 
 
 const root = createRoot(document.getElementById('root'));
@@ -12,3 +14,11 @@ root.render(
         </ThemeProvider>
     </BrowserRouter>
 )
+
+// const root = ReactDOM.render(
+//     <BrowserRouter>
+//         <ThemeProvider>
+//             <App />
+//         </ThemeProvider>
+//     </BrowserRouter>,
+//     document.getElementById('root'));
