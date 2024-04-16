@@ -19,10 +19,12 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
 
     new webpack.DefinePlugin({
         GLOBAL_ISDEV: JSON.stringify(isDev),
-    })
+    }),
 
-        // new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(), // Hot Module Replacement (HMR) - isDev
+        // new ReactRefreshWebpackPlugin(), // An EXPERIMENTAL Webpack plugin to enable "Fast Refresh" 
+        // (also previously known as Hot Reloading) for React components. -  isDev
+
     ]
-
 
 }
