@@ -12,9 +12,8 @@ export function classNames(clss: string, modes: Modes = {}, additional: string[]
         // [Array(2), Array(2)] => [ ['hovered', true], ['selectable', true] ]
         .map(([className]) => className); // ['hovered', 'selectable']
 
-    // console.log('modesModified', modesModified);
-
-    return [clss,
+    return [
+        clss,
         ...additional.filter((Boolean)),
         ...modesModified,
     ].join(' ');
