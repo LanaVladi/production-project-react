@@ -7,8 +7,13 @@
     transition: width 0.2s;
 }
 
+// .lang {
+//     background-color: yellow;
+//     font-size: large;
+// }
+
 .collapsed {
-    // background: wheat;
+    background: wheat;
     width: var(--sidebar-width-collapsed);
 }
 
@@ -18,4 +23,5 @@
     align-items: center;
     position: absolute;
     bottom: 20px;
+    gap: 20px;
 }

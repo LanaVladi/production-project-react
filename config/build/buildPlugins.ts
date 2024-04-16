@@ -5,7 +5,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from "./types/config";
 
-export function buildPlugins({ paths }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
 
     return [new HtmlWebpackPlugin({
         template: paths.html
@@ -16,6 +16,11 @@ export function buildPlugins({ paths }: BuildOptions): webpack.WebpackPluginInst
         chunkFilename: 'css/[name].[contenthash:8].css', // когда будем файлы разбивать на асинхронные
 
     }),
+
+    new webpack.DefinePlugin({
+        GLOBAL_ISDEV: JSON.stringify(isDev),
+    })
+
         // new webpack.HotModuleReplacementPlugin(),
     ]
 
