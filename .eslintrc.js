@@ -37,6 +37,8 @@ module.exports = {
         //  что и переменная в содержащейся в ней области.
         'import/extensions': 'off', // расширения импортов убираем
         'import/no-extraneous-dependencies': 'off', // Запрещает импорт внешних модулей, которые не объявлены в package.json
+        'max-len': ['error', { ignoreComments: true }],
+        
         // 'no-underscore-dangle': 'off',
         // 'i18next/no-literal-string': ['error', { markupOnly: true }],
         // mode?: 'jsx-text-only' | 'jsx-only' | 'all',
