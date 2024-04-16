@@ -33,7 +33,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                 {
                     "locales": ['en', 'ru'], // Locales your project supports
                     "keyAsDefaultValue": true 
-                    // Description: If true, use the extracted key as defaultValue (ignoring defaultValue option).
+                    // If true, use the extracted key as defaultValue (ignoring defaultValue option).
                     //  This is sometimes refered to as "natural keys".
                 }
             ],
