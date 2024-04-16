@@ -24,7 +24,7 @@ module.exports = {
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }], // расширения, в которых разрешен jsx
-        // 'import/no-unresolved': 'off',
+        'import/no-unresolved': 'off', // сообщает о неразрешенных импортах в вызовах CommonJS и AMD
         'import/prefer-default-export': 'off', // экпорт дефолтный отключили
         'no-unused-vars': 'warn', // показывает неиспользуемые переменные
         'react/require-default-props': 'off', // дефолтное значение пропса
@@ -36,11 +36,10 @@ module.exports = {
         'import/extensions': 'off', // расширения импортов убираем
         'import/no-extraneous-dependencies': 'off', // Запрещает импорт внешних модулей, которые не объявлены в package.json
         // 'no-underscore-dangle': 'off',
-        'import/no-unresolved': 'warn',
 
     },
     globals: {
         GLOBAL_ISDEV: true,
-    // Запрещает исп-ние необъявленных переменных, если они не упомянуты в /*global */комментариях.
+        // Запрещ. исп-ние необъявленных переменных, если они не упомянуты в /*global */комментариях
     },
 };
