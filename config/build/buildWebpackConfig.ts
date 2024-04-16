@@ -1,18 +1,17 @@
-import { buildDevServer } from "./buildDevServer";
-import { buildLoaders } from "./buildLoaders";
-import { buildPlugins } from "./buildPlugins";
-import { buildResolvers } from "./buildResolvers";
-import { BuildOptions } from "./types/config";
-import webpack from "webpack";
-
+import webpack from 'webpack';
+import { buildDevServer } from './buildDevServer';
+import { buildLoaders } from './buildLoaders';
+import { buildPlugins } from './buildPlugins';
+import { buildResolvers } from './buildResolvers';
+import { BuildOptions } from './types/config';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
     const { mode, paths, isDev } = options;
 
     return {
-        mode: mode,
+        mode,
         entry: paths.entry,
-        
+
         // {
         //     app: paths.entry,
         //     // hot: 'webpack/hot/dev-server.js',
@@ -31,16 +30,15 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
         // cache: isDev ? false : true
-        
+
         // {
         //     // isDev? buildDevServer(options): undefined,
         //     //  buildDevServer(options),
         //     hot: true, // Enable HMR on the server
         //     // client: {
-        //     //     overlay: true, // Show an overlay in the browser when there are errors or warnings
+        //     // overlay: true, // Show an overlay in the browser when there are errors or warnings
         //     // },
 
         // }
     };
-
 }
