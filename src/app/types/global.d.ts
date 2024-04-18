@@ -7,3 +7,5 @@ declare module '*.jpg';
 declare module '*.jpeg';
 
 declare const GLOBAL_ISDEV: boolean;
+
+// declare module 'webpack-bundle-analyzer';
