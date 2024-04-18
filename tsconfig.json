@@ -7,12 +7,13 @@
     "target": "es5", // версия стандарта EcmaScript,  в которую код по итогу будет компилироваться
     // В какую спецификацию компилируем: для поддержки большинства браузеров
     "jsx": "react-jsx", // чтобы можно было писать react jsx синтаксис и не добавлять import React from "react"; в файлы
+    // "allowUmdGlobalAccess": true,
     "allowJs": true, // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "moduleResolution": "node", // определяет какие будут импорты node / classic
     "baseUrl": ".", // для абсолютного импорта
     "paths": {
-       "*": ["./src/*"] 
-       }, // для абсолютного импорта
+      "*": ["./src/*"]
+    }, // для абсолютного импорта
     "esModuleInterop": true,
     // esModuleInterop позволяет работать с пакетами, которые используют модуль commomJS как с обычными пакетами
     // с помощью import (require()) module.exports) = commomJS.
@@ -32,9 +33,9 @@
     // If the module in compilerOptions in tsconfig.json is commonjs, the setting is complete, else webpack will fail with an error.
     // This occurs because ts-node does not support any module syntax other than commonjs.
   },
-  "plugins": [{ "name": "typescript-plugin-css-modules" }]
-  // "options": {
-  //   "customTemplate": "./customTemplate.js"
-  // }
+  "plugins": [{ "name": "typescript-plugin-css-modules" }],
+
+  "include": ["./config/jest/setupTests.ts"]
+
   // "include": ["src", "global.d.ts"],
 }
