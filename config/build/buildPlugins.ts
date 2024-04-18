@@ -1,6 +1,6 @@
-// import path from "path";
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 
@@ -20,8 +20,12 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     }),
 
     new webpack.HotModuleReplacementPlugin(), // Hot Module Replacement (HMR) - isDev
-        // new ReactRefreshWebpackPlugin(), An EXPERIMENTAL Webpack plugin to enable "Fast Refresh"
-        // (also previously known as Hot Reloading) for React components. -  isDev
+    // new ReactRefreshWebpackPlugin(), An EXPERIMENTAL Webpack plugin to enable "Fast Refresh"
+    // (also previously known as Hot Reloading) for React components. -  isDev
+
+    new BundleAnalyzerPlugin({
+        // openAnalyzer: false,
+    }),
 
     ];
 }
