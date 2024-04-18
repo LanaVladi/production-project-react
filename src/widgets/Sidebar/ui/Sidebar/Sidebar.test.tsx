@@ -1,13 +1,12 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import { withTranslation } from 'react-i18next';
 import { Sidebar } from './Sidebar';
+import { renderWithTranslation } from '../../../../shared/lib/tests/renderWithTranslation/renderWithTranslation';
 
 describe('Sidebar', () => {
     test('test render Sidebar component', () => {
-        const SidebarWithTranslation = withTranslation()(Sidebar);
-        render(<SidebarWithTranslation />);
+        renderWithTranslation(<Sidebar />);
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     });
 });
