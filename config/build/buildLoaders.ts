@@ -23,7 +23,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
             loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
-                "plugins": [
+                plugins: [
                     ['i18next-extract',
                         {
                             locales: ['en', 'ru'], // Locales your project supports
@@ -33,9 +33,9 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                         },
                     ],
                 ],
-            }
-        }
-    }
+            },
+        },
+    };
 
     const cssLoader = {
         test: /\.scss$/i, // test: /\.s[ac]ss$/i,
@@ -49,6 +49,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                     modules: {
                         auto: ((resourcePath: string) => resourcePath.includes('.module')), // auto: /\.module\.\w+$/, // /\.module\.\w+$/
                         localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
+                        exportLocalsConvention: 'camelCase', // для написания стилей в camelCase
                     },
                 },
             }, // Translates CSS into CommonJS

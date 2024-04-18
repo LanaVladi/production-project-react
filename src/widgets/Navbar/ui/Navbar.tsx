@@ -13,8 +13,12 @@ export function Navbar({ className }: NavbarProps) {
     return (
         <div className={classNames(clss.navbar, {}, [className])}>
             <div className={classNames(clss.links)}>
-                <AppLink to="/" theme={AppLinkTheme.SECONDARY}>{t('Main')}</AppLink>
-                <AppLink to="/about" theme={AppLinkTheme.SECONDARY}>{t('About')}</AppLink>
+                <AppLink to="/" theme={AppLinkTheme.SECONDARY}>
+                    {t('Main')}
+                </AppLink>
+                <AppLink to="/about" theme={AppLinkTheme.SECONDARY}>
+                    {t('About')}
+                </AppLink>
             </div>
 
         </div>
