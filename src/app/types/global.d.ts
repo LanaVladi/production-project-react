@@ -1,4 +1,8 @@
 declare module '*.module.scss';
+// declare module '*.module.scss' {
+//     const clss: { [className: string]: string };
+//     export default clss;
+// }
 
 declare module '*.svg';
 

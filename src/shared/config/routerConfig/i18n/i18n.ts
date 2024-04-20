@@ -29,16 +29,6 @@ i18n
             escapeValue: false, // not needed for react as it escapes by default
         },
 
-        //     ns: ['translation', 'main', 'about'],
-        //     defaultNS: 'translation'
-        //   }, (err, t) => {
-        //     i18n.t('myKey'); // key in moduleA namespace (defined default)
-        //     i18n.t('common:myKey'); // key in common namespace (not recommended with ns prefix
-        //     when used in combination with natural language keys)
-        //     // better use the ns option:
-        //     i18n.t('myKey', { ns: 'common' });  // settings for namespaces
-        // https://www.i18next.com/principles/namespaces
-
         // backend: {
         //     loadPath: '/locales/{{lng}}/{{ns}}.json', // path where resources get loaded from
         // }
