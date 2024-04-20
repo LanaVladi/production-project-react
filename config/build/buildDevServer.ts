@@ -6,6 +6,6 @@ export function buildDevServer(options: BuildOptions): WebpackDevServerConfigura
         port: options.port,
         open: true,
         historyApiFallback: true, // Cannot GET /about
-        // hot: true, // for Hot Module Replacement (HMR)
+        hot: true, // for Hot Module Replacement (HMR)
     };
 }

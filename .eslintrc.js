@@ -4,11 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-        'plugin:i18next/recommended',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -22,7 +18,6 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         '@stylistic/js',
-
     ],
     rules: {
         'react/jsx-indent': [2, 4], // отступы в jsx коде
@@ -47,6 +42,22 @@ module.exports = {
             { max: 2, maxEOF: 0, maxBOF: 1 }],
         '@stylistic/js/max-len': ['error',
             { code: 150, ignoreComments: true, ignoreUrls: true }],
+        // '@stylistic/js/indent': ['error', 2],
+
+        // 'i18next/no-literal-string': [
+        //     'error',
+        //     {
+        //         ignoreAttribute: ['data-testid', 'to'],  // для атрибута "data-testid" отключаем перевод
+        //     },
+        // ],
+        // overrides: [
+        //     {
+        //         files: ['**/src/**/*.test.{ts,tsx}'],
+        //         rules: {
+        //             'i18next/no-literal-string': 0,
+        //         },
+        //     },
+        // ], // для файлов с расширениями переопределяет следующие правила. Для тестовых файлов отключаем перевод
 
         // "no-multiple-empty-lines":
         // 'i18next/no-literal-string': 2,
