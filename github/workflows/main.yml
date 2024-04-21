@@ -1,19 +1,21 @@
 name: linting, testing, building
 on:
   push:
-    branches: [ main ] 
+    branches: [add-ci-pipeline]
   pull_request:
-    branches: [ main, develop ]
+    branches: [main, develop]
+  workflow_dispatch:
+
 jobs:
   pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 20.x ]
+        node-version: [20.x]
 
     steps:
       - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
+      - name: Starting Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -27,4 +29,3 @@ jobs:
         run: npm run lint:scss
       - name: unit testing
         run: npm run test:unit
-
