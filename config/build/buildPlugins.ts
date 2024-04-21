@@ -24,7 +24,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     // (also previously known as Hot Reloading) for React components. -  isDev
 
     new BundleAnalyzerPlugin({
-        // openAnalyzer: false,
+    // openAnalyzer: false,
     }),
     ];
 }

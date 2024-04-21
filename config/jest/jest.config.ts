@@ -39,7 +39,7 @@ export default {
         'tsx',
         'json',
         'node',
-        // ...defaults.moduleFileExtensions, 'mts'
+    // ...defaults.moduleFileExtensions, 'mts'
     ],
 
     // The test environment that will be used for testing
@@ -49,7 +49,7 @@ export default {
     testMatch: [
         '**/__tests__/**/*.[jt]s?(x)',
         '**/?(*.)+(spec|test).[tj]s?(x)',
-        // '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+    // '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
     // '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     // Обнаружил разницу между МАК ОС и ВИНДОУС!!!

@@ -2,7 +2,7 @@ import { classNames } from './classNames';
 
 describe('classNames', () => {
     test('with only param', () => {
-        // expect(true).toBe(true);
+    // expect(true).toBe(true);
         expect(classNames('someClass')).toBe('someClass');
     });
 

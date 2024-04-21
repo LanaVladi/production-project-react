@@ -6,7 +6,7 @@ const config: StorybookConfig = {
         options: {},
     },
     stories: [
-        // '../../src/**/*.mdx',
+    // '../../src/**/*.mdx',
         '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
     addons: [
         '@storybook/addon-webpack5-compiler-swc',
@@ -15,7 +15,7 @@ const config: StorybookConfig = {
         '@storybook/addon-essentials',
         '@chromatic-com/storybook',
         '@storybook/addon-interactions',
-        // '@storybook/addon-styling',
+    // '@storybook/addon-styling',
     ],
 
     docs: {
