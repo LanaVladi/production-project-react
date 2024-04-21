@@ -1,5 +1,6 @@
 import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
-import * as clss from './Button.module.scss';
+import clss from './Button.module.scss';
+// import * as clss from './Button.module.scss';
 import { classNames } from '../../lib/classNames/classNames';
 
 export enum ThemeButton {
@@ -20,8 +21,8 @@ export const Button: FC<ButtonProps> = (props) => {
         theme,
         ...otherProps
     } = props;
-    console.log('clss.button', clss.button);
-    console.log('clss.clear', clss.clear);
+    // console.log('clss.button', clss.button);
+    // console.log('clss.clear', clss.clear);
 
     return (
         <button

@@ -2,7 +2,7 @@
 // import '../../../app/styles/index.scss';
 // import ThemeDecorator from '../../../shared/config/storybook/ThemeDecorator';
 // import { Theme } from '../../../app/providers/themeProvider';
-// import { Button, ButtonTheme } from './Button';
+// import { Button, ThemeButton } from './Button';
 
 // const meta = {
 //     title: 'shared/Button',
@@ -27,14 +27,14 @@
 // export const Secondary: Story = {
 //     args: {
 //         children: 'Text',
-//         theme: ButtonTheme.CLEAR,
+//         theme: ThemeButton.CLEAR,
 //     },
 // };
 
 // export const Outline: Story = {
 //     args: {
 //         children: 'Text',
-//         theme: ButtonTheme.OUTLINE,
+//         theme: ThemeButton.OUTLINE,
 //     },
 //     decorators: [ThemeDecorator(Theme.LIGHT)],
 // };
@@ -42,7 +42,7 @@
 // export const OutlineDark: Story = {
 //     args: {
 //         children: 'Text',
-//         theme: ButtonTheme.OUTLINE,
+//         theme: ThemeButton.OUTLINE,
 //     },
 
 //     decorators: [ThemeDecorator(Theme.DARK)],
