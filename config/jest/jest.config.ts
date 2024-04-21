@@ -10,6 +10,9 @@ import path from 'path';
 
 // const config: Config = {
 export default {
+    modulePaths: [
+        '<rootDir>src',
+    ],
     // Automatically clear mock calls, instances, contexts and results before every test
     clearMocks: true,
 
@@ -17,7 +20,7 @@ export default {
     // collectCoverage: true,
 
     // The directory where Jest should output its coverage files
-    coverageDirectory: 'coverage',
+    // coverageDirectory: 'coverage',
 
     // An array of regexp pattern strings used to skip coverage collection
     coveragePathIgnorePatterns: [
@@ -47,9 +50,9 @@ export default {
 
     // The glob patterns Jest uses to detect test files
     testMatch: [
-        '**/__tests__/**/*.[jt]s?(x)',
-        '**/?(*.)+(spec|test).[tj]s?(x)',
-    // '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+        // '**/__tests__/**/*.[jt]s?(x)',
+        // '**/?(*.)+(spec|test).[tj]s?(x)',
+        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
     // '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     // Обнаружил разницу между МАК ОС и ВИНДОУС!!!

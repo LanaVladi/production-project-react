@@ -9,9 +9,15 @@ import 'app/styles/index.scss';
 
 // // export default StyleDecorator;
 
-import { StoryFn } from '@storybook/react';
-// import { Theme } from '../../../app/providers/themeProvider/index';
+// import { StoryFn } from '@storybook/react';
+// // import { Theme } from '../../../app/providers/themeProvider/index';
 
-export const StyleDecorator = (StoryComponent: StoryFn) => (
-    <StoryComponent />
-);
+// export const StyleDecorator = (StoryComponent: StoryFn) => (
+//     <StoryComponent />
+// );  // рабочий 808
+
+/// ///////////////////////////////////////////////////////////////////////////////////////////
+
+import { Story } from '@storybook/react';
+
+export const StyleDecorator = (story: () => Story) => story();

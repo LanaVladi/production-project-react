@@ -1,17 +1,16 @@
 // import React from 'react';
 // import type { Meta, StoryObj } from '@storybook/react';
-// import { ThemeSwitcher } from './ThemeSwitcher';
+// import MainPage from './MainPage';
 // import { Theme } from '../../../app/providers/themeProvider';
 // import ThemeDecorator from '../../../shared/config/storybook/ThemeDecorator';
 
 // const meta = {
-//     title: 'shared/ThemeSwitcher',
-//     component: ThemeSwitcher,
+//     title: 'pages/MainPage',
+//     component: MainPage,
 //     argTypes: {
 //         backgroundColor: { control: 'color' },
 //     },
-//     args: { to: '/' },
-// } as Meta<typeof ThemeSwitcher>;
+// } as Meta<typeof MainPage>;
 
 // export default meta;
 
@@ -19,11 +18,11 @@
 
 // export const Normal: Story = {
 //     args: {},
-// } as Meta<typeof ThemeSwitcher>;
+// } as Meta<typeof MainPage>;
 
 // export const Dark: Story = {
 //     args: {},
-// } as Meta<typeof ThemeSwitcher>;
+// } as Meta<typeof MainPage>;
 
 // Dark.args = {};
 // Dark.decorators = [ThemeDecorator(Theme.DARK)];
@@ -32,17 +31,17 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/themeProvider';
-import { ThemeSwitcher } from './ThemeSwitcher';
+import MainPage from './MainPage';
 
 export default {
-    title: 'shared/ThemeSwitcher',
-    component: ThemeSwitcher,
+    title: 'pages/MainPage',
+    component: MainPage,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ThemeSwitcher>;
+} as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof ThemeSwitcher> = (args) => <ThemeSwitcher {...args} />;
+const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

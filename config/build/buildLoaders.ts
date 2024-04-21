@@ -33,6 +33,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                         },
                     ],
                 ],
+                inputSourceMap: isDev ? true : undefined, // Ensure inputSourceMap is set correctly
             },
         },
     };
