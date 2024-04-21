@@ -1,7 +1,17 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable react/jsx-no-useless-fragment */
-import { StoryFn, Decorator } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
+// import { StoryFn, Decorator } from '@storybook/react';
+// import { BrowserRouter } from 'react-router-dom';
+
+// const RouterDecorator = (StoryComponent: StoryFn) => (
+//     <BrowserRouter>
+//         <StoryComponent />
+//     </BrowserRouter>
+// );
+
+// export default RouterDecorator; // рабочий
+
+/// /////////////////////////////////////////////////
 
 // interface Props {
 //     children?: ReactNode;
@@ -14,14 +24,6 @@ import { BrowserRouter } from 'react-router-dom';
 // );
 
 // export default RouterDecorator;
-
-const RouterDecorator = (StoryComponent: StoryFn) => (
-    <BrowserRouter>
-        <StoryComponent />
-    </BrowserRouter>
-);
-
-export default RouterDecorator;
 
 // const RouterDecorator: Decorator = (Story) => (
 //     <BrowserRouter>
@@ -43,3 +45,14 @@ export default RouterDecorator;
 // );
 
 // export default RouterDecorator;
+
+/// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import { Story } from '@storybook/react';
+import { BrowserRouter } from 'react-router-dom';
+
+export const RouterDecorator = (story: () => Story) => (
+    <BrowserRouter>
+        {story()}
+    </BrowserRouter>
+);

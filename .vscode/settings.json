@@ -1,0 +1,14 @@
+{
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.tsdk": "node_modules/typescript/lib/",
+    "i18n-ally.localesPaths": [
+        "public/locales",
+        "src/shared/config/routerConfig/i18n"
+    ],
+    "i18n-ally.keystyle": "nested",
+    "cSpell.words": [
+        "clss",
+        "ISDEV"
+    ], // this should work, the path should be relative to the code-workspace file
+    // "typescript.tsdk": "node_modules\\typescript\\lib" // this should work, the path should be relative to the code-workspace file
+}

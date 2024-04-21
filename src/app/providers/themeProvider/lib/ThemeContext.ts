@@ -5,7 +5,7 @@ export const enum Theme {
     DARK = 'dark',
 }
 
-export const LOCAL_STORAGE_KEY_THEME = 'theme';
+export const LOCAL_STORAGE_THEME_KEY = 'theme';
 
 export interface ThemeContextProps {
     theme?: Theme;

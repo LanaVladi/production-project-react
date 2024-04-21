@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import { Button, ButtonTheme } from './Button';
+import { Button, ThemeButton } from './Button';
 
 describe('Button', () => {
     test('test render Button component', () => {
@@ -10,7 +10,7 @@ describe('Button', () => {
     });
 
     test('test clear theme', () => {
-        render(<Button theme={ButtonTheme.CLEAR}>TEST</Button>);
+        render(<Button theme={ThemeButton.CLEAR}>TEST</Button>);
         expect(screen.getByText('TEST')).toHaveClass('clear');
         screen.debug(); // чтобы увидеть разметку
     });
