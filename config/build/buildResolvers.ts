@@ -9,9 +9,9 @@ export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
         // mainFiles: ['index'],
         // alias: {},
 
-        // fallback: {
-        //     // "events": require.resolve("events/")
-        //     "events": false
-        //   }
+    // fallback: {
+    //     // "events": require.resolve("events/")
+    //     "events": false
+    //   }
     };
 }
