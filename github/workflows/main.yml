@@ -1,7 +1,7 @@
 name: linting, testing, building
 on:
   push:
-    branches: [ main ] 
+    branches: [ add-ci-pipeline ] 
   pull_request:
     branches: [ main, develop ]
 jobs:
