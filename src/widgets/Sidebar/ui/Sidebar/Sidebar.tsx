@@ -3,9 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { ThemeSwitcher } from '../../../../widgets/ThemeSwitcher';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import clss from './Sidebar.module.scss';
-// import * as clss from './Sidebar.module.scss';
 import { LangSwitcher } from '../../../../widgets/LangSwitcher';
-import { Button } from '../../../../shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonTheme } from '../../../../shared/ui/Button/Button';
+import { AppLink, AppLinkTheme } from '../../../../shared/ui/appLink/AppLink';
+import { RoutePath } from '../../../../shared/config/routerConfig/routerConfig';
+import AboutIcon from '../../../../shared/assets/icons/about-20-20.svg';
+import MainIcon from '../../../../shared/assets/icons/main-20-20.svg';
 
 interface SidebarProps {
     className?: string;
@@ -32,12 +35,33 @@ export function Sidebar({ className }: SidebarProps) {
                 data-testid="sidebar-toggle"
                 type="button"
                 onClick={onToggle}
+                className={clss.collapseBtn}
+                theme={ButtonTheme.BACKGROUND_INVERTED}
+                size={ButtonSize.M}
+                square
             >
-                {t('Toggle')}
+                {collapsed ? '>' : '<'}
             </Button>
+            <div className={clss.items}>
+                <AppLink to={RoutePath.main} theme={AppLinkTheme.SECONDARY} className={clss.item}>
+                    <MainIcon className={clss.icon} />
+                    <span className={clss.link}>
+                        {t('Main')}
+                    </span>
+
+                </AppLink>
+                <AppLink to={RoutePath.about} theme={AppLinkTheme.SECONDARY} className={clss.item}>
+
+                    <AboutIcon className={clss.icon} />
+                    <span className={clss.link}>
+                        {t('About')}
+                    </span>
+                </AppLink>
+            </div>
+
             <div className={clss.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher />
+                <LangSwitcher short={collapsed} className={clss.lang} />
             </div>
 
         </div>
