@@ -1,9 +1,8 @@
 import React, {
-    ReactNode, useCallback, useEffect, useState,
+    ReactNode, useCallback, useEffect,
 } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTheme } from '../../../app/providers/themeProvider';
 import { classNames } from '../../../shared/lib/classNames/classNames';
-import { Button } from '../Button/Button';
 import { Portal } from '../Portal/Portal';
 import clss from './Modal.module.scss';
 
@@ -18,8 +17,7 @@ export function Modal(props: ModalProps) {
     const {
         className, children, isOpen, onClose,
     } = props;
-
-    const { t } = useTranslation();
+    const { theme } = useTheme();
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -49,15 +47,15 @@ export function Modal(props: ModalProps) {
 
     const mods: Record<string, boolean> = {
         [clss.opened]: isOpen,
-        [clss.theme]: true,
+        [clss[theme]]: true,
     };
 
     return (
         <Portal>
             <div className={classNames(clss.modal, mods, [className])}>
                 <div className={clss.overlay} onClick={closeHandler}>
-                    <div className={clss.content} onClick={onContentClick}>{children}</div>
-                    <Button className={clss.closebtn} onClick={closeHandler}>{t('CLOSE')}</Button>
+                    <div className={classNames(clss.content, mods, [className])} onClick={onContentClick}>{children}</div>
+                    {/* <Button className={clss.closebtn} onClick={closeHandler}>{t('CLOSE')}</Button> */}
                 </div>
             </div>
         </Portal>

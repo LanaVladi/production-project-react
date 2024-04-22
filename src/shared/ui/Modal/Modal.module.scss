@@ -30,6 +30,11 @@
     max-width: 60%;
 }
 
+.content.dark {
+    background: var(--bg-color);
+    color: var(--primary-color);
+}
+
 .opened {
     pointer-events: auto;
     opacity: 1;
@@ -43,5 +48,5 @@
 
 .closebtn {
     color: aquamarine;
-    font-size: var(--font-m);
+    font-size: var(--font-line-m);
 }
