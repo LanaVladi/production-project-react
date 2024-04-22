@@ -1,6 +1,6 @@
+/* eslint-disable i18next/no-literal-string */
 import './styles/index.scss';
-import React, { Suspense } from 'react';
-// import { useTheme } from '../app/providers/themeProvider/lib/useTheme';
+import { Suspense } from 'react';
 import { AppRouter } from './providers/router';
 import { Navbar } from '../widgets/Navbar';
 import { Sidebar } from '../widgets/Sidebar';
