@@ -1,17 +1,18 @@
 import { fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import React from 'react';
 import { Sidebar } from './Sidebar';
-import { renderWithTranslation } from '../../../../shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { componentRender } from '../../../../shared/lib/tests/componentRender/componentRender';
 
 describe('Sidebar', () => {
     test('test render Sidebar component', () => {
-        renderWithTranslation(<Sidebar />);
+        componentRender(<Sidebar />);
+        console.log(screen.debug(null, Infinity));
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     });
 
     test('test toggle Sidebar', () => {
-        renderWithTranslation(<Sidebar />);
+        componentRender(<Sidebar />);
+        console.log(screen.debug(null, Infinity));
         const toggleBtn = screen.getByTestId('sidebar-toggle');
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
         fireEvent.click(toggleBtn);

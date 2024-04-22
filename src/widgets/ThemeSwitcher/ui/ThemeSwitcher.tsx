@@ -1,4 +1,3 @@
-import React from 'react';
 import { Theme, useTheme } from '../../../app/providers/themeProvider';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import clss from './ThemeSwitcher.module.scss';
