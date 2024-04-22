@@ -100,6 +100,7 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'i18next',
+        'react-hooks',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -128,7 +129,16 @@ module.exports = {
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 150 }],
+
+        // чтобы можно было установить разные события (onClick) на не интерактивные элементы на div.
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
+
+        // для контроля использвания хуков
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
     },
+
     globals: {
         __IS_DEV__: true,
     },
