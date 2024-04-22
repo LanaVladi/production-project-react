@@ -29,8 +29,8 @@
 
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/themeProvider';
+import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator';
+import { Theme } from '../../../app/providers/themeProvider';
 import MainPage from './MainPage';
 
 export default {
@@ -41,7 +41,11 @@ export default {
     },
 } as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
+const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...(args as object)} />;
+
+// function foo<T extends object>(t: T): T {
+//     return { ...(t as object) } as T;
+// }
 
 export const Normal = Template.bind({});
 Normal.args = {};

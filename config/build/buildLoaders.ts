@@ -3,13 +3,13 @@ import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-    const fileLoader = {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-            {
-                loader: 'file-loader',
-            }],
-    };
+    // const fileLoader = {
+    //     test: /\.(png|jpe?g|gif)$/i,
+    //     use: [
+    //         {
+    //             loader: 'file-loader',
+    //         }],
+    // };
 
     const svgLoader = {
         test: /\.svg$/,
@@ -33,7 +33,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                         },
                     ],
                 ],
-                inputSourceMap: isDev ? true : undefined, // Ensure inputSourceMap is set correctly
+                // inputSourceMap: isDev ? true : undefined, // Ensure inputSourceMap is set correctly
             },
         },
     };
@@ -48,7 +48,6 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     };
 
     return [
-        fileLoader,
         svgLoader,
         babelLoader,
         typescriptLoader, // важен порядок лоадеров, чтение снизу вверх,
