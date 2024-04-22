@@ -2,10 +2,11 @@
   "Test example": "Test example",
   "Translate": "Translate",
   "Main page": "Main page",
-  "Language": "English",
+  "English": "Русский",
   "Main": "Main",
   "About": "About",
   "Page not found": "Page not found",
   "Toggle": "Toggle",
-  "throw error": "throw error"
+  "throw error": "throw error",
+  "En": "Ru"
 }

@@ -2,9 +2,10 @@
   "Test example": "Тестовый пример",
   "Translate": "Перевод",
   "Main page": "Главная страница",
-  "Language":  "Русский",
+  "English":  "English",
   "Main": "Главная",
   "About": "О нас",
   "Page not found": "Страница не найдена",
-  "Toggle": "Переключить"
+  "Toggle": "Переключить",
+  "En": "En"
 }

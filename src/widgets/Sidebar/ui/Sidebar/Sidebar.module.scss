@@ -7,11 +7,6 @@
     transition: width 0.2s;
 }
 
-.collapsed {
-    background: wheat;
-    width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
     display: flex;
     justify-content: center;
@@ -29,4 +24,47 @@
     height: 50px;
     background: yellow;
     border: 1px;
+}
+
+.collapseBtn {
+    position: absolute;
+    right: -24px;
+    bottom: 32px;
+}
+
+.items {
+    margin-top: 20px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    margin-left: 10px;
+    opacity: 1;
+}
+
+.icon {
+    fill: var(--primary-color);
+}
+
+.collapsed {
+    background: wheat;
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+    }
+
+    .link {
+        opacity: 0;
+        transition: 0.2s opacity;
+        width: 0;
+    }
 }
