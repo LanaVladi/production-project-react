@@ -21,18 +21,13 @@
 }
 
 .content {
-    background: aqua;
+    background: var(--bg-color);
     padding: 15px;
     border-radius: 15px;
     height: 300px;
     transition: 0.3s transform;
     transform: scale(0.5);
     max-width: 60%;
-}
-
-.content.dark {
-    background: var(--bg-color);
-    color: var(--primary-color);
 }
 
 .opened {
