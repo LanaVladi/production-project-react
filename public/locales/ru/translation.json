@@ -9,5 +9,7 @@
   "Toggle": "Переключить",
   "En": "En",
   "CLOSE": "ЗАКРЫТЬ",
-  "Sign in": "Войти"
+  "Sign in": "Войти",
+  "increment": "увеличить",
+  "decrement": "уменьшить"
 }

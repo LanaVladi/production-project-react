@@ -27,7 +27,8 @@
 // Dark.args = {};
 // Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
-import React from 'react';
+/// ///////////////////////////////////////////////////  here stories for new dependencies versions
+
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator';
 import { Theme } from '../../../app/providers/themeProvider';

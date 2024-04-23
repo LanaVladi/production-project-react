@@ -77,6 +77,9 @@
 //     },
 // };
 
+/// /////////////////////////////////// настройки для последних версий зависимостей, указанных в 13 PR .
+//  Дальше откат до старых версий
+
 module.exports = {
     env: {
         browser: true,
@@ -134,13 +137,16 @@ module.exports = {
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
 
-        // для контроля использвания хуков
+        // для контроля использования хуков
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
+
+        'no-param-reassign': 'off', // из-за стора редакса отключили
+
     },
 
     globals: {
-        __IS_DEV__: true,
+        GLOBAL_ISDEV: true,
     },
     overrides: [
         {

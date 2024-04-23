@@ -1,37 +1,22 @@
-// import { createRoot } from 'react-dom/client';
-// // import ReactDOM from 'react-dom';
-// import { BrowserRouter } from 'react-router-dom';
-// import App from './app/App';
-// import { ThemeProvider } from './app/providers/themeProvider/ui/ThemeProvider';
-// import './shared/config/i18n/i18n'; // важный момент!!!
-// import { ErrorBoundary } from './app/providers/ErrorBoundary';
-
-// const root = createRoot(document.getElementById('root'));
-// root.render(
-//     <BrowserRouter>
-//         <ErrorBoundary>
-
-//             <ThemeProvider>
-//                 <App />
-//             </ThemeProvider>
-//         </ErrorBoundary>
-//     </BrowserRouter>,
-// );
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from './app/providers/themeProvider';
 import App from './app/App';
 import '../src/shared/config/i18n/i18n';
-
 import { ErrorBoundary } from './app/providers/ErrorBoundary';
+import { StoreProvider } from './app/providers/StoreProvider';
 
 render(
-    <BrowserRouter>
-        <ErrorBoundary>
-            <ThemeProvider>
-                <App />
-            </ThemeProvider>
-        </ErrorBoundary>
-    </BrowserRouter>,
+
+    <StoreProvider>
+        <BrowserRouter>
+            <ErrorBoundary>
+                <ThemeProvider>
+                    <App />
+                </ThemeProvider>
+            </ErrorBoundary>
+        </BrowserRouter>
+    </StoreProvider>,
+
     document.getElementById('root'),
 );

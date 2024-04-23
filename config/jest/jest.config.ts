@@ -83,12 +83,15 @@ export default {
     // verbose: undefined,
     verbose: true,
 
+    // A set of global variables that need to be available in all test environments
+    // globals: {},
     globals: {
         'ts-jest': {
             tsconfig: {
                 jsx: 'react-jsx',
             },
         },
+        GLOBAL_ISDEV: true,
     },
 
     // All imported modules in your tests should be mocked automatically
