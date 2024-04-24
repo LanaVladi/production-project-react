@@ -141,8 +141,12 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
 
-        'no-param-reassign': 'off', // из-за стора редакса отключили
-
+        'no-param-reassign': ['error', {
+            props: true,
+            ignorePropertyModificationsFor: [
+                'state',
+            ],
+        }], // для стора редакса, чтобы можно было мутировать state
     },
 
     globals: {

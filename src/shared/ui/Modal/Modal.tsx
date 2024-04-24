@@ -47,7 +47,6 @@ export function Modal(props: ModalProps) {
 
     const mods: Record<string, boolean> = {
         [clss.opened]: isOpen,
-        [clss[theme]]: true,
     };
 
     return (

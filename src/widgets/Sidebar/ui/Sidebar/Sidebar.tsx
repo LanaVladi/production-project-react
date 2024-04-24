@@ -43,14 +43,14 @@ export function Sidebar({ className }: SidebarProps) {
                 {collapsed ? '>' : '<'}
             </Button>
             <div className={clss.items}>
-                <AppLink to={RoutePath.main} theme={AppLinkTheme.SECONDARY} className={clss.item}>
+                <AppLink to={RoutePath.main} theme={AppLinkTheme.PRIMARY} className={clss.item}>
                     <MainIcon className={clss.icon} />
                     <span className={clss.link}>
                         {t('Main')}
                     </span>
 
                 </AppLink>
-                <AppLink to={RoutePath.about} theme={AppLinkTheme.SECONDARY} className={clss.item}>
+                <AppLink to={RoutePath.about} theme={AppLinkTheme.PRIMARY} className={clss.item}>
 
                     <AboutIcon className={clss.icon} />
                     <span className={clss.link}>
