@@ -12,5 +12,7 @@
     "CLOSE": "CLOSE",
     "Sign in": "Sign in",
     "increment": "increment",
-    "decrement": "decrement"
+    "decrement": "decrement",
+    "Enter username": "Enter username",
+    "Enter password": "Enter password"
 }
