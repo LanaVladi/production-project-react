@@ -11,5 +11,7 @@
   "CLOSE": "ЗАКРЫТЬ",
   "Sign in": "Войти",
   "increment": "увеличить",
-  "decrement": "уменьшить"
+  "decrement": "уменьшить",
+  "Enter username": "Введите имя пользователя",
+  "Enter password": "Введите пароль"
 }
