@@ -140,6 +140,13 @@ module.exports = {
         // для контроля использования хуков
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
+
+        'no-param-reassign': ['error', {
+            props: true,
+            ignorePropertyModificationsFor: [
+                'state',
+            ],
+        }], // для стора редакса, чтобы можно было мутировать state
     },
 
     globals: {
@@ -153,12 +160,5 @@ module.exports = {
                 'max-len': 'off',
             },
         },
-        {
-            files: ['src/**/*.slice.ts'],
-            // avoid state param assignment
-            rules: { 'no-param-reassign': ['error', { props: false }] },
-            // из-за стора редакса отключили // Redux Toolkit allows us to write "mutating" logic in reducers.
-        },
-
     ],
 };
