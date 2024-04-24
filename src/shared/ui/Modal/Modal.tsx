@@ -51,7 +51,7 @@ export function Modal(props: ModalProps) {
 
     return (
         <Portal>
-            <div className={classNames(clss.modal, mods, [className, theme])}>
+            <div className={classNames(clss.modal, mods, [className])}>
                 <div className={clss.overlay} onClick={closeHandler}>
                     <div className={classNames(clss.content, mods, [className])} onClick={onContentClick}>{children}</div>
                     {/* <Button className={clss.closebtn} onClick={closeHandler}>{t('CLOSE')}</Button> */}

@@ -21,7 +21,7 @@ export function Navbar({ className }: NavbarProps) {
 
     return (
         <div className={classNames(clss.navbar, {}, [className])}>
-            <Button className={classNames(clss.links)} theme={ButtonTheme.OUTLINE} type="button" onClick={onToggleModal}>
+            <Button className={classNames(clss.links)} theme={ButtonTheme.CLEAR} type="button" onClick={onToggleModal}>
                 {t('Sign in')}
             </Button>
             <Modal isOpen={isAuthModal} onClose={onToggleModal}>

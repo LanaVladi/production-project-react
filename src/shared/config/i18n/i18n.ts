@@ -16,7 +16,8 @@ i18n
     // init i18next
     // for all options read: https://www.i18next.com/overview/configuration-options
     .init({
-        lng: 'en', //  язык по умолчанию - language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
+        // lng: 'en', //  язык по умолчанию, если его применять, то при перезагрузке тоже он будет, а не сохраненный в localStorage
+        // - language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
         fallbackLng: 'en', // язык, который будет использоваться, если перевод на язык пользователя недоступен. // Если явно установить для него значение false, вообще не будет запускаться загрузка FallbackLng.
 
         // eslint-disable-next-line no-undef
