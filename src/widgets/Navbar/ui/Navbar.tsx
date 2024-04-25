@@ -1,7 +1,7 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable i18next/no-literal-string */
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData, userActions } from '../../../entities/User';
 import { LoginModal } from '../../../features/AuthByUsername/ui';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import clss from './Navbar.module.scss';
@@ -13,8 +13,10 @@ interface NavbarProps {
 }
 
 export function Navbar({ className }: NavbarProps) {
-    const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
+    const dispatch = useDispatch();
+    const authData = useSelector(getUserAuthData);
+    const { t } = useTranslation();
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -24,7 +26,22 @@ export function Navbar({ className }: NavbarProps) {
         setIsAuthModal(true);
     }, []);
 
+    const onLogOut = useCallback(() => {
+        dispatch(userActions.logOut());
+    }, [dispatch]);
+
+    if (authData) {
+        return (
+            <div className={classNames(clss.navbar, {}, [className])}>
+                <Button className={classNames(clss.links)} theme={ButtonTheme.CLEAR} type="button" onClick={onLogOut}>
+                    {t('Sign out')}
+                </Button>
+            </div>
+        );
+    }
+
     return (
+
         <div className={classNames(clss.navbar, {}, [className])}>
             <Button className={classNames(clss.links)} theme={ButtonTheme.CLEAR} type="button" onClick={onShowModal}>
                 {t('Sign in')}
