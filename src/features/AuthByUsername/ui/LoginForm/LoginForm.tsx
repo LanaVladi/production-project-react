@@ -11,11 +11,11 @@ import clss from './LoginForm.module.scss';
 import { loginActions } from '../../model/slice/LoginSlice';
 import { Text, TextTheme } from '../../../../shared/ui/Text/Text';
 
-interface LoginFormProps {
+export interface LoginFormProps {
     className?: string;
 }
 
-export const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const loginForm = useSelector(getLoginState);
@@ -68,3 +68,5 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
         </div>
     );
 });
+
+export default LoginForm;
