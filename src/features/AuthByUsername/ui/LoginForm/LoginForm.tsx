@@ -1,15 +1,19 @@
 import { useTranslation } from 'react-i18next';
 import FocusLock from 'react-focus-lock';
-import { memo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { memo, useCallback, useEffect } from 'react';
+import { useDispatch, useSelector, useStore } from 'react-redux';
+import { ReduxStoreWithManager } from '../../../../app/providers/StoreProvider';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { Input } from '../../../../shared/ui/Input/Input';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
 import clss from './LoginForm.module.scss';
-import { loginActions } from '../../model/slice/LoginSlice';
+import { loginActions, loginReducer } from '../../model/slice/LoginSlice';
 import { Text, TextTheme } from '../../../../shared/ui/Text/Text';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 
 export interface LoginFormProps {
     className?: string;
@@ -18,10 +22,27 @@ export interface LoginFormProps {
 const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const loginForm = useSelector(getLoginState);
-    const {
-        username, password, isLoading, error,
-    } = loginForm;
+    const store = useStore() as ReduxStoreWithManager; // получаем наш стор
+
+    const username = useSelector(getLoginUsername);
+    const password = useSelector(getLoginPassword);
+    const isLoading = useSelector(getLoginIsLoading);
+    const error = useSelector(getLoginError);
+
+    useEffect(() => {
+        store.reducerManager.add('LoginForm', loginReducer);
+        dispatch({ type: '@INIT Login Form' });
+
+        return () => {
+            store.reducerManager.remove('LoginForm');
+            dispatch({ type: '@DESTROY Login Form' });
+        };
+        // eslint-disable-next-line
+    }, []);
+    // В момент, когда мы монтируем компонент мы добавляем редюсер, когда компонент размонтируется реактом и
+    //  он уже не нужен мы редюсер снова удаляем. // Eslint ругается на пустой массив зависимостей, но нам они там не нужны,
+    // т.к. этот useEffect должен отрабатывать один раз при монтировании компонента и можем эту строчку отключить
+    // eslint-disable-next-line
 
     const handleChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
