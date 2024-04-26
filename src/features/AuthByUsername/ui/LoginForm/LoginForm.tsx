@@ -1,10 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import FocusLock from 'react-focus-lock';
-import { memo, useCallback, useEffect } from 'react';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { AnyAction } from '@reduxjs/toolkit';
-import { DynamicModuleLoader } from '../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ReduxStoreWithManager } from '../../../../app/providers/StoreProvider';
+import { memo, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { DynamicModuleLoader, ReducersList } from '../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { Input } from '../../../../shared/ui/Input/Input';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
@@ -20,6 +18,10 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 export interface LoginFormProps {
     className?: string;
 }
+
+const initialReducers: ReducersList = {
+    LoginForm: loginReducer,
+};
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
@@ -42,8 +44,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     }, [dispatch, password, username]);
 
     return (
-        // eslint-disable-next-line i18next/no-literal-string
-        <DynamicModuleLoader removeAfterUnmount name="LoginForm" reducer={loginReducer}>
+        <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
             <div className={classNames(clss.loginForm, {}, [className])}>
                 <Text title={t('Authorization form')} theme={TextTheme.PRIMARY} />
                 {error && <Text text={t('Incorrect username or password')} theme={TextTheme.ERROR} />}
