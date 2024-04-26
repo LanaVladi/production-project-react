@@ -141,12 +141,13 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
 
-        'no-param-reassign': ['error', {
-            props: true,
-            ignorePropertyModificationsFor: [
-                'state',
-            ],
-        }], // для стора редакса, чтобы можно было мутировать state
+        'no-param-reassign': 'off',
+        // 'no-param-reassign': ['error', {
+        //     props: true,
+        //     ignorePropertyModificationsFor: [
+        //         'state',
+        //     ],
+        // }], // для стора редакса, чтобы можно было мутировать state
     },
 
     globals: {

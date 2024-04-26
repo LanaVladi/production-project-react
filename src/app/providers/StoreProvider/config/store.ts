@@ -1,21 +1,35 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
-import { loginReducer } from '../../../../features/AuthByUsername/ui';
+import { configureStore, DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from '../../../../entities/Counter';
 import { userReducer } from '../../../../entities/User';
 import { StateSchema } from './StateSchema';
+import { createReducerManager } from './ReducerManager';
+// import { loginReducer } from '../../../../features/AuthByUsername/model/slice/LoginSlice';
 
-export function createReduxStore(initialState?: StateSchema) {
+export function createReduxStore(
+    initialState?: StateSchema,
+    asyncReducers?: ReducersMapObject<StateSchema>,
+) {
     const rootReducer: ReducersMapObject<StateSchema> = {
+        ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        LoginForm: loginReducer,
+
+        // // Асинхронные редюсеры
+        // LoginForm: loginReducer, // для проверки размера бандла при прод
     };
 
-    return configureStore<StateSchema>({
-        reducer: rootReducer,
+    const reducerManager = createReducerManager(rootReducer);
+
+    const store = configureStore<StateSchema>({
+        reducer: reducerManager.reduce,
         devTools: GLOBAL_ISDEV, // devTools only dev development
         preloadedState: initialState, // Для тестирования, storybook
     });
+
+    // @ts-ignore
+    store.reducerManager = reducerManager;
+
+    return store;
 }
 
 // function createReduxStore is created for reuse in testing and storybook

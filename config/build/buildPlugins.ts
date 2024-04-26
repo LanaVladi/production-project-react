@@ -19,6 +19,10 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         }),
     ];
 
+    // plugins.push(new BundleAnalyzerPlugin({
+    //     openAnalyzer: false,
+    // })); // при pre commit убираем из прод
+
     if (isDev) {
         plugins.push(new webpack.HotModuleReplacementPlugin()); // Hot Module Replacement (HMR) - isDev
         // new ReactRefreshWebpackPlugin(), An EXPERIMENTAL Webpack plugin to enable "Fast Refresh"
