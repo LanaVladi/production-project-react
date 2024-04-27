@@ -28,8 +28,10 @@ export function createReduxStore(
 
     // @ts-ignore
     store.reducerManager = reducerManager;
-
     return store;
 }
+
+// export type AppDispatch = typeof store.dispatch преобразовали в =>
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
 
 // function createReduxStore is created for reuse in testing and storybook

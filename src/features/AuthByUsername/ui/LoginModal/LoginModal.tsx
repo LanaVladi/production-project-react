@@ -15,7 +15,7 @@ export function LoginModal({ className, isOpen, onClose }: LoginModalProps) {
         <Modal isOpen={isOpen} onClose={onClose}>
             <Suspense fallback={<Loader />}>
                 {/* <LoginForm />  // для проверки размера бандла при прод */}
-                <LoginFormAsync />
+                <LoginFormAsync onSuccess={onClose} />
             </Suspense>
         </Modal>
     );
