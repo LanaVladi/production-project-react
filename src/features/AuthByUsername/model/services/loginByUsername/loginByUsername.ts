@@ -20,7 +20,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, {rej
             } // проверяем, что данные с серверы точно пришли
 
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data)); // данные с сервера сохраняем в локалсторидж
-            thunkAPI.dispatch(userActions.setAuthData(response.data)); // передаем данные, еоторые получили с сервера в стор
+            thunkAPI.dispatch(userActions.setAuthData(response.data)); // передаем данные, которые получили с сервера в стор
 
             return response.data;
         } catch (error) {
