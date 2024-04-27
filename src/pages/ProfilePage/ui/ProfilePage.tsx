@@ -19,6 +19,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
             <div className={classNames('', {}, [className])}>
                 {t('Profile page')}
             </div>
+
         </DynamicModuleLoader>
     );
 };
