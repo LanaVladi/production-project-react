@@ -33,5 +33,6 @@ declare module '*.svg' {
 }
 
 declare const GLOBAL_ISDEV: boolean;
+declare const __API__: string;
 
 // declare module 'case-sensitive-paths-webpack-plugin';
