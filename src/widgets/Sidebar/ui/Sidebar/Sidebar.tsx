@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+/* eslint-disable i18next/no-literal-string */
+import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { SidebarItemsList } from '../../../../widgets/Sidebar/model/items';
 import { ThemeSwitcher } from '../../../../widgets/ThemeSwitcher';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import clss from './Sidebar.module.scss';
@@ -9,6 +11,7 @@ import { AppLink, AppLinkTheme } from '../../../../shared/ui/appLink/AppLink';
 import { RoutePath } from '../../../../shared/config/routerConfig/routerConfig';
 import AboutIcon from '../../../../shared/assets/icons/about-20-20.svg';
 import MainIcon from '../../../../shared/assets/icons/main-20-20.svg';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
     className?: string;
@@ -17,10 +20,19 @@ interface SidebarProps {
 export function Sidebar({ className }: SidebarProps) {
     const [collapsed, setCollapsed] = useState(false);
     const { t } = useTranslation();
+    const [test, setTest] = useState(0);
 
     const onToggle = () => {
         setCollapsed((prev) => !prev);
     };
+
+    // const itemsList = useMemo(() => SidebarItemsList.map((item) => (
+    //     <SidebarItem
+    //         item={item}
+    //         collapsed={collapsed}
+    //         key={item.path}
+    //     />
+    // )), [collapsed]);
 
     return (
         <div
@@ -43,20 +55,9 @@ export function Sidebar({ className }: SidebarProps) {
                 {collapsed ? '>' : '<'}
             </Button>
             <div className={clss.items}>
-                <AppLink to={RoutePath.main} theme={AppLinkTheme.PRIMARY} className={clss.item}>
-                    <MainIcon className={clss.icon} />
-                    <span className={clss.link}>
-                        {t('Main')}
-                    </span>
-
-                </AppLink>
-                <AppLink to={RoutePath.about} theme={AppLinkTheme.PRIMARY} className={clss.item}>
-
-                    <AboutIcon className={clss.icon} />
-                    <span className={clss.link}>
-                        {t('About')}
-                    </span>
-                </AppLink>
+                <button type="button" onClick={() => setTest(test + 1)}>Test</button>
+                {/* {itemsList} */}
+                {SidebarItemsList.map((item) => (<SidebarItem item={item} collapsed={collapsed} key={item.path} />))}
             </div>
 
             <div className={clss.switchers}>
