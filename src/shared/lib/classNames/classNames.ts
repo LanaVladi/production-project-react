@@ -1,4 +1,4 @@
-type Modes = Record<string, boolean | string>;
+export type Mods = Record<string, boolean | string | undefined>
 
 // const obj: Modes = {
 //     'hovered': true,
@@ -8,8 +8,8 @@ type Modes = Record<string, boolean | string>;
 
 export function classNames(
     clss: string,
-    modes: Modes = {},
-    additional: string[] = [],
+    modes: Mods = {},
+    additional: Array<string | undefined> = [],
 ): string {
     const modesModified = Object.entries(modes)
         .filter(([_, booleanValue]) => Boolean(booleanValue))
