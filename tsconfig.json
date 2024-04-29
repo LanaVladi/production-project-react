@@ -9,6 +9,7 @@
     "jsx": "react-jsx", // чтобы можно было писать react jsx синтаксис и не добавлять import React from "react"; в файлы
     // "allowUmdGlobalAccess": true,
     "allowJs": true, // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
+    "strict": true,
     "moduleResolution": "node", // определяет какие будут импорты node / classic
     "baseUrl": ".", // для абсолютного импорта
     "paths": {

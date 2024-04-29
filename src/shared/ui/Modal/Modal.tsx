@@ -2,7 +2,7 @@ import React, {
     ReactNode, useCallback, useEffect,
 } from 'react';
 import { useTheme } from '../../../app/providers/themeProvider';
-import { classNames } from '../../../shared/lib/classNames/classNames';
+import { classNames, Mods } from '../../../shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import clss from './Modal.module.scss';
 
@@ -37,7 +37,7 @@ export function Modal(props: ModalProps) {
 
     useEffect(() => {
         if (isOpen) {
-            window.addEventListener('keydown', onkeydown);
+            window.addEventListener('keydown', onKeyDown);
         }
 
         return () => {
@@ -45,7 +45,7 @@ export function Modal(props: ModalProps) {
         };
     }, [isOpen, onKeyDown]);
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [clss.opened]: isOpen,
     };
 

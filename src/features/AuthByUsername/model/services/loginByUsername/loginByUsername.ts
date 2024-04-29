@@ -1,31 +1,31 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { USER_LOCALSTORAGE_KEY } from '../../../../../shared/const/localstorage';
 import { User, userActions } from '../../../../../entities/User';
+import { ThunkConfig, ThunkExtraArg } from '../../../../../app/providers/StoreProvider/config/StateSchema';
 
 interface LoginByUsernameProps {
     username: string;
     password: string;
 }
 
-export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, {rejectValue: string}>(
+export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
     'login/loginByUsername',
     async (authData, thunkAPI) => {
         const { username, password } = authData;
+        const { dispatch, extra, rejectWithValue } = thunkAPI;
         try {
-            const response = await axios.post<User>('http://localhost:8000/login', authData);
+            const response = await extra.api.post<User>('/login', authData);
 
             if (!response.data) {
                 throw new Error();
             } // проверяем, что данные с серверы точно пришли
 
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data)); // данные с сервера сохраняем в локалсторидж
-            thunkAPI.dispatch(userActions.setAuthData(response.data)); // передаем данные, которые получили с сервера в стор
-
+            dispatch(userActions.setAuthData(response.data)); // передаем данные, которые получили с сервера в стор
             return response.data;
         } catch (error) {
             console.log('error', error);
-            return thunkAPI.rejectWithValue('error');
+            return rejectWithValue('error');
         }
     },
 );
