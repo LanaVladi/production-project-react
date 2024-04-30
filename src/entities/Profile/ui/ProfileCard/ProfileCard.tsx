@@ -36,7 +36,7 @@ export const ProfileCard = (props : ProfileCardProps) => {
         onChangeCurrency,
     } = props;
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
 
     if (isLoading) {
         return (
@@ -108,7 +108,7 @@ export const ProfileCard = (props : ProfileCardProps) => {
                 />
                 <Input
                     value={data?.avatar}
-                    placeholder={t('Enter a link to your avatar')}
+                    placeholder={t('Enter a link to your avatar', { ns: 'profile' })}
                     className={clss.input}
                     onChange={onChangeAvatar}
                     readonly={readonly}

@@ -9,5 +9,14 @@
     "Save": "Сохранить",
     "Age": "Ваш возраст",
     "City":  "Город",
-    "Enter a link to your avatar":  "Введите ссылку на аватар"
-  }
+    "Enter a link to your avatar":  "Введите ссылку на аватар",
+   "SERVER_ERROR": "Серверная ошибка при сохранении",
+    "INCORRECT_COUNTRY": "Некорректный регион",
+   "NO_DATA": "Данные не указаны",
+   "INCORRECT_USER_DATA": "Имя и фамилия обязательны",
+   "INCORRECT_AGE": "Некорректный возраст",
+   "Enter country": "Укажите страну",
+   "Enter currency": "Укажите валюту",
+   "Enter option": "Укажите значение"
+}
+  

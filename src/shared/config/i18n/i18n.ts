@@ -22,6 +22,8 @@ i18n
 
         // eslint-disable-next-line no-undef
         debug: (GLOBAL_ISDEV),
+        ns: ['translation', 'profile'],
+        defaultNS: 'translation',
 
         interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
