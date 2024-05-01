@@ -127,6 +127,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config.plugins?.push(new DefinePlugin({
         GLOBAL_ISDEV: true,
         __API__: JSON.stringify(''),
+        __PROJECT__: JSON.stringify('storybook'),
     }));
 
     // config.plugins?.push(new CaseSensitivePathsPlugin() as any);

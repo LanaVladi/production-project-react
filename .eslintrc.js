@@ -154,6 +154,7 @@ module.exports = {
     globals: {
         GLOBAL_ISDEV: true,
         __API__: true,
+        __PROJECT__: true,
     },
     overrides: [
         {
