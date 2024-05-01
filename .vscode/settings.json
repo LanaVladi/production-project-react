@@ -14,4 +14,8 @@
         "testid"
     ], // this should work, the path should be relative to the code-workspace file
     // "typescript.tsdk": "node_modules\\typescript\\lib" // this should work, the path should be relative to the code-workspace file
+
+    "files.associations": {
+        "**/.fttemplates/**": "plaintext",
+        }
 }
