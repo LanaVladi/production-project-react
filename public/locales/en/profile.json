@@ -9,5 +9,13 @@
     "Save": "Save",
     "Age": "Age",
     "City": "City",
-    "Enter a link to your avatar": "Enter a link to your avatar"
+    "Enter a link to your avatar": "Enter a link to your avatar",
+    "SERVER_ERROR": "SERVER_ERROR",
+    "INCORRECT_COUNTRY": "INCORRECT_COUNTRY",
+   "NO_DATA": "NO_DATA",
+   "INCORRECT_USER_DATA": "INCORRECT_USER_DATA",
+   "INCORRECT_AGE": "INCORRECT_AGE",
+   "Enter country": "Enter country",
+   "Enter currency": "Enter currency",
+   "Enter option": "Enter option"
 }
