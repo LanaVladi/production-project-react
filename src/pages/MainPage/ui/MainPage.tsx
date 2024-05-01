@@ -5,7 +5,9 @@ function MainPage() {
     // 'translation' - namespace by default
 
     return (
-        <div>{t('Main page')}</div>
+        <div>
+            {t('Main page')}
+        </div>
     );
 }
 
