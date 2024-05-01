@@ -23,8 +23,8 @@ export function classNames(
     ].join(' ');
 }
 
-classNames(
-    'remove-btn',
-    { hovered: true, selectable: true, red: false },
-    ['padding'],
-); // => 'remove-btn hovered selectable padding'
+// classNames(
+//     'remove-btn',
+//     { hovered: true, selectable: true, red: false },
+//     ['padding'],
+// ); // => 'remove-btn hovered selectable padding'
