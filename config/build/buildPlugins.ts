@@ -17,10 +17,13 @@ export function buildPlugins({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css', // когда будем файлы разбивать на асинхронные
         }),
+
         new webpack.DefinePlugin({
             GLOBAL_ISDEV: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
+            // This makes it possible for us to safely use env vars on our code
+            // 'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
         }),
     ];
 
