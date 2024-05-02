@@ -1,6 +1,9 @@
+/* eslint-disable i18next/no-literal-string */
 import { useTranslation } from 'react-i18next';
 import { memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Skeleton } from '../../../../shared/ui/Skeleton/Skeleton';
+import { Text, TextAlign } from '../../../../shared/ui/Text/Text';
 import {
     getArticleDetailsData, getArticleDetailsError,
     getArticleDetailsIsLoading,
@@ -24,7 +27,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const { className, id } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const isLoading = useSelector(getArticleDetailsIsLoading);
+    const isLoading = true;
+    // const isLoading = useSelector(getArticleDetailsIsLoading);
     const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
 
@@ -37,11 +41,24 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     let content;
 
     if (isLoading) {
-        content = (<div>Loading...</div>);
+        content = (
+            <>
+                <Skeleton className={clss.avatar} width={200} height={200} border="50%" />
+                <Skeleton className={clss.title} width={300} height={32} />
+                <Skeleton className={clss.skeleton} width={600} height={24} />
+                <Skeleton className={clss.skeleton} width="100%" height={200} />
+                <Skeleton className={clss.skeleton} width="100%" height={200} />
+            </>
+        );
     } else if (error) {
-        content = (<div>error</div>);
+        content = (
+            <Text
+                align={TextAlign.CENTER}
+                title={t('Произошла ошибка при загрузке статьи')}
+            />
+        );
     } else {
-        content = (<div>'Article Details'</div>);
+        content = (<div>Article Details</div>);
     }
 
     return (
