@@ -2,7 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { USER_LOCALSTORAGE_KEY } from '../../../../shared/const/localstorage';
 import { User, UserSchema } from '../types/user';
 
-const initialState: UserSchema = {};
+const initialState: UserSchema = {
+    _inited: false,
+};
+
 export const userSlice = createSlice({
     name: 'user',
     initialState,
@@ -15,6 +18,8 @@ export const userSlice = createSlice({
             if (user) {
                 state.authData = JSON.parse(user);
             }
+
+            state._inited = true;
         }, // если юзер вышел из вкладки и опять зашел, нужно понять, что он авторизован (смотрим данные из локалсторидж)
         logOut: (state) => {
             state.authData = undefined; // очищаем стейт

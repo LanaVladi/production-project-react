@@ -5,4 +5,6 @@ export interface User {
 
 export interface UserSchema {
     authData?: User;
+
+    _inited: boolean; // флаг, по которому определяем авторизован пользователь или нет
 }
