@@ -46,7 +46,7 @@
 //         '@stylistic/js/linebreak-style': ['off'],
 
 //         // 'no-debugger': 'off',
-//         // 'no-console': '0',F
+//         // 'no-console': '0',
 
 //         // 'i18next/no-literal-string': [
 //         //     'error',
