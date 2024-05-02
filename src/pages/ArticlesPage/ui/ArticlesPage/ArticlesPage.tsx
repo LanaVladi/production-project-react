@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ArticleDetails } from '../../../../entities/Article';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import clss from './ArticlesPage.module.scss';
 

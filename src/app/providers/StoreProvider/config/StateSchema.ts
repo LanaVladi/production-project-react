@@ -3,6 +3,7 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
+import { ArticleDetailsSchema } from '../../../../entities/Article';
 import { ProfileSchema } from '../../../../entities/Profile';
 import { LoginSchema } from '../../../../features/AuthByUsername/ui';
 import { CounterSchema } from '../../../../entities/Counter';
@@ -15,6 +16,7 @@ export interface StateSchema {
      // Асинхронные редюсеры
     LoginForm?: LoginSchema;
     profile?: ProfileSchema;
+    articleDetails?: ArticleDetailsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
