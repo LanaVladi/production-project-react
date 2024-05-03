@@ -30,26 +30,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <Text className={clss.commentTitle} title={t('Comments')} />
             <CommentList
                 isLoading
-                comments={[
-                    {
-                        id: '1',
-                        text: 'comment1',
-                        user: {
-                            id: '1',
-                            username: 'Ulbi',
-                            avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
-                        },
-                    },
-                    {
-                        id: '4',
-                        text: 'comment2',
-                        user: {
-                            id: '4',
-                            username: 'Yan',
-                            avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
-                        },
-                    },
-                ]}
+                comments={[]}
             />
         </div>
     );
