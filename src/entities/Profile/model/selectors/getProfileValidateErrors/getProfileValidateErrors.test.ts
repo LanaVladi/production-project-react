@@ -3,7 +3,7 @@ import { ValidateProfileError } from '../../types/profile';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
 
 describe('getProfileValidateErrors.test', () => {
-    test('should return error', () => {
+    test('should work with filled state', () => {
         const validateErrors = [
             ValidateProfileError.SERVER_ERROR,
             ValidateProfileError.INCORRECT_AGE];
