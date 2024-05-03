@@ -12,7 +12,7 @@ const initialState: ArticleDetailsSchema = {
 export const articleDetailsSlice = createSlice({
     name: 'articleDetails',
     initialState,
-    reducers: { },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchArticleById.pending, (state) => {
@@ -25,7 +25,6 @@ export const articleDetailsSlice = createSlice({
             ) => {
                 state.isLoading = false;
                 state.data = action.payload;
-                // state.form = action.payload;
             })
             .addCase(fetchArticleById.rejected, (state, action) => {
                 state.isLoading = false;
