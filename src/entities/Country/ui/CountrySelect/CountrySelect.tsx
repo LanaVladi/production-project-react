@@ -22,7 +22,8 @@ const options = [
 export const CountrySelect = memo(({
     className, value, onChange, readonly,
 }: CountrySelectProps) => {
-    const { t } = useTranslation('profile');
+    // const { t } = useTranslation('profile');
+    const { t } = useTranslation();
 
     const onChangeHandler = useCallback((value: string) => {
         onChange?.(value as Country);
@@ -31,7 +32,8 @@ export const CountrySelect = memo(({
     return (
         <Select
             className={classNames('', {}, [className])}
-            label={t('Enter country', { ns: 'profile' })}
+            // label={t('Enter country', { ns: 'profile' })}
+            label={t('Enter country')}
             options={options}
             value={value}
             onChange={onChangeHandler}
