@@ -1,24 +1,24 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getArticleDetailsData } from '../../../../entities/Article/model/selectors/articleDetails';
-import { Comment } from '../../../../entities/Comment';
-import { getUserAuthData } from '../../../../entities/User';
-import { ThunkConfig } from '../../../../app/providers/StoreProvider';
-import { getAddCommentFormText } from '../selectors/addCommentFormSelectors';
-import { addCommentFormActions } from '../slices/addCommentFormSlice';
+import { getUserAuthData } from '../../../../../entities/User';
+import { ThunkConfig } from '../../../../../app/providers/StoreProvider';
+import { Comment } from '../../../../../entities/Comment';
+import { getArticleDetailsData } from '../../../../../entities/Article/model/selectors/articleDetails';
+import {
+    fetchCommentsByArticleId,
+} from '../../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-export const sendComment = createAsyncThunk<
+export const addCommentForArticle = createAsyncThunk<
     Comment,
-    void,
+    string,
     ThunkConfig<string>
     >(
-        'AddCommentForm/sendComment',
-        async (authdata, thunkApi) => {
+        'articleDetails/addCommentForArticle',
+        async (text, thunkApi) => {
             const {
                 extra, dispatch, rejectWithValue, getState,
             } = thunkApi;
 
             const userData = getUserAuthData(getState());
-            const text = getAddCommentFormText(getState());
             const article = getArticleDetailsData(getState());
 
             if (!userData || !text || !article) {
@@ -36,11 +36,10 @@ export const sendComment = createAsyncThunk<
                     throw new Error();
                 }
 
-                dispatch(addCommentFormActions.setText('')); // автоматич.очищение инпута
+                dispatch(fetchCommentsByArticleId(article.id)); // запрашиваем коммент дял обновления страницы и появления его на странице
 
                 return response.data;
             } catch (e) {
-                console.log(e);
                 return rejectWithValue('error');
             }
         },

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from '../../../shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -100,22 +100,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-
-                {/* <ProfilePageHeader />
-                <ProfileCard
-                    data={{ first: 'Vasya', lastname: 'Kakkak', age: 66 }}
-                    isLoading={isLoading}
-                    error={error}
-                    readonly={readonly}
-                    onChangeFirstName={onChangeFirstName}
-                    onChangeLastName={onChangeLastName}
-                    onChangeAge={onChangeAge}
-                    onChangeCity={onChangeCity}
-                    onChangeUsername={onChangeUsername}
-                    onChangeAvatar={onChangeAvatar}
-                // onChangeCurrency={onChangeCurrency}
-                // onChangeCountry={onChangeCountry}
-                /> */}
             </div>
         </DynamicModuleLoader>
     );

@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { sendComment } from '../../../../features/addCommentForm/model/sendComment/sendComment';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import { Input } from '../../../../shared/ui/Input/Input';
 import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
@@ -13,6 +12,7 @@ import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
     className?: string;
+    onSendComment: (text:string) => void;
 }
 
 const reducers: ReducersList = {
@@ -20,7 +20,7 @@ const reducers: ReducersList = {
 };
 
 const AddCommentForm = memo((props: AddCommentFormProps) => {
-    const { className } = props;
+    const { className, onSendComment } = props;
     const { t } = useTranslation();
     const text = useSelector(getAddCommentFormText);
     const error = useSelector(getAddCommentFormError);
@@ -30,24 +30,25 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         dispatch(addCommentFormActions.setText(value));
     }, [dispatch]);
 
-    const onSendComment = () => {
-        dispatch(sendComment());
-    };
+    const onSendHandler = useCallback(() => {
+        onSendComment(text || '');
+        onCommentTextChange('');
+    }, [onCommentTextChange, onSendComment, text]);
 
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.AddCommentForm, {}, [className])}>
                 <Input
                     className={cls.input}
-                    placeholder={t('Введите текст комментария')}
+                    placeholder={t('Enter comment text')}
                     value={text}
                     onChange={onCommentTextChange}
                 />
                 <Button
                     theme={ButtonTheme.OUTLINE}
-                    onClick={onSendComment}
+                    onClick={onSendHandler}
                 >
-                    {t('Отправить')}
+                    {t('Send')}
                 </Button>
             </div>
         </DynamicModuleLoader>
