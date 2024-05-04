@@ -8,7 +8,7 @@ import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useA
 import { DynamicModuleLoader, ReducersList } from '../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
-import cls from './AddCommentForm.module.scss';
+import clss from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
     className?: string;
@@ -37,9 +37,9 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.AddCommentForm, {}, [className])}>
+            <div className={classNames(clss.AddCommentForm, {}, [className])}>
                 <Input
-                    className={cls.input}
+                    className={clss.input}
                     placeholder={t('Enter comment text')}
                     value={text}
                     onChange={onCommentTextChange}
