@@ -5,11 +5,15 @@ import { StateSchema, StoreProvider } from '../../../app/providers/StoreProvider
 import { profileReducer } from '../../../entities/Profile';
 import { loginReducer } from '../../../features/AuthByUsername/model/slice/LoginSlice';
 import { articleDetailsReducer } from '../../../entities/Article/model/slice/articleDetailsSlice';
+import { articleDetailsCommentsReducer } from '../../../pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
+import { addCommentFormReducer } from '../../../features/addCommentForm/model/slices/addCommentFormSlice';
 
 const defaultAsyncReducers: ReducersList = {
     LoginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
+    addCommentForm: addCommentFormReducer,
+    articleDetailsComments: articleDetailsCommentsReducer,
 };
 
 export const StoreDecorator = (

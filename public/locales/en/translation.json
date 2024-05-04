@@ -19,7 +19,6 @@
     "Incorrect username or password": "Incorrect username or password",
     "Sign out": "Sign out",
     "Profile page": "Profile page",
-
     "Profile": "Profile",
     "Edit": "Edit",
     "Your lastname": "Your lastname",
@@ -33,17 +32,17 @@
     "Enter a link to your avatar": "Enter a link to your avatar",
     "SERVER_ERROR": "SERVER_ERROR",
     "INCORRECT_COUNTRY": "INCORRECT_COUNTRY",
-   "NO_DATA": "NO_DATA",
-   "INCORRECT_USER_DATA": "INCORRECT_USER_DATA",
-   "INCORRECT_AGE": "INCORRECT_AGE",
-   "Enter country": "Enter country",
-   "Enter currency": "Enter currency",
-   "Enter option": "Enter option",
-
+    "NO_DATA": "NO_DATA",
+    "INCORRECT_USER_DATA": "INCORRECT_USER_DATA",
+    "INCORRECT_AGE": "INCORRECT_AGE",
+    "Enter country": "Enter country",
+    "Enter currency": "Enter currency",
+    "Enter option": "Enter option",
     "Articles": "Articles",
     "Article not found": "Article not found",
     "There was an error loading the article": "There was an error loading the article",
-
-        "Comments": "Comments",
-        "No comments": "No comments"
+    "Comments": "Comments",
+    "No comments": "No comments",
+    "Send": "Send",
+    "Enter comment text": "Enter comment text"
 }
