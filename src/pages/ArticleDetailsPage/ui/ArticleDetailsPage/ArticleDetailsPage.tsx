@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { AddCommentForm } from '../../../../features/addCommentForm';
 import { fetchCommentsByArticleId } from '../../../../pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { DynamicModuleLoader, ReducersList } from '../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../../../pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
@@ -47,6 +48,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <div className={classNames(clss.articleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id} />
                 <Text className={clss.commentTitle} title={t('Comments')} />
+                <AddCommentForm />
                 <CommentList
                     isLoading={commentsIsLoading}
                     comments={comments}
