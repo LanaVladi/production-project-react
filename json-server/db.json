@@ -120,15 +120,29 @@
         "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
       }
     ],
-    "profile": {
-      "first": "jgh",
-      "lastname": "asf",
-      "age": 465,
-      "currency": "RUB",
-      "country": "Belarus",
-      "city": "Moscow",
-      "username": "admin213",
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
-    }
+    "profile": [
+        {
+          "id": "1",
+          "first": "Yana",
+          "lastname": "Yana",
+          "age": 35,
+          "currency": "RUB",
+          "country": "Belarus",
+          "city": "Moscow",
+          "username": "admin213",
+          "avatar": "https://variety.com/wp-content/uploads/2021/04/Avatar.jpg?w=800&h=533&crop=1"
+        },
+        {
+          "id": "2",
+          "first": "ulbi tv",
+          "lastname": "asf",
+          "age": 37,
+          "currency": "RUB",
+          "country": "Russia",
+          "city": "Moscow",
+          "username": "ulbi tv",
+          "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+        }
+      ]
   }
   

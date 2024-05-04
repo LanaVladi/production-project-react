@@ -13,11 +13,13 @@ const data = {
     currency: Currency.USD,
 };
 
+const profileId = '1';
+
 describe('fetchProfileData.test', () => {
     test('should return success', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data })); // data mock
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk(profileId);
 
         expect(thunk.api.get).toHaveBeenCalled(); // проверяем был ли вызван метод get
         expect(result.meta.requestStatus).toBe('fulfilled'); // ожидаем поля fulfilled
@@ -27,7 +29,7 @@ describe('fetchProfileData.test', () => {
     test('should return error', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk(profileId);
 
         expect(thunk.api.get).toHaveBeenCalled(); // проверяем был ли вызван метод get
         expect(result.meta.requestStatus).toBe('rejected'); // и ожидаем поля rejected
