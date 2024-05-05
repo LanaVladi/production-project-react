@@ -1,4 +1,7 @@
 import { memo } from 'react';
+import { useHover } from '../../../../shared/lib/hooks/useHover/useHover';
+
+import { Card } from '../../../../shared/ui/Card/Card';
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg';
 import { Icon } from '../../../../shared/ui/Icon/Icon';
 import { Text } from '../../../../shared/ui/Text/Text';
@@ -16,10 +19,13 @@ interface ArticleListItemProps {
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { className, article, view } = props;
+    const [isHover, bindHover] = useHover();
+    console.log('isHover', isHover);
 
     return (
-        <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <div className={cls.card}>
+        <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            {article.title}
+            <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
                     <img alt={article.title} src={article.img} className={cls.img} />
                     <Text text={article.createdAt} className={cls.date} />
@@ -27,10 +33,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 <div className={cls.infoWrapper}>
                     <Text text={article.type.join(', ')} className={cls.types} />
                     <Text text={String(article.views)} className={cls.views} />
+                    <Icon Svg={EyeIcon} />
                 </div>
                 <Text text={article.title} className={cls.title} />
-                <Icon Svg={EyeIcon} />
-            </div>
+            </Card>
         </div>
     );
 });
