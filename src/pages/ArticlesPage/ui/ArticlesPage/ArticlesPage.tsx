@@ -1,7 +1,11 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails } from '../../../../entities/Article';
+import { ArticleBlockType, ArticleType } from '../../../../entities/Article/model/types/article';
+import {
+    Article, ArticleDetails, ArticleList, ArticleView,
+} from '../../../../entities/Article';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
+import { data as article } from '../../../../entities/Article/mocks/data';
 import clss from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -14,7 +18,17 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <div className={classNames(clss.articlesPage, {}, [className])}>
-            {t('Article Page')}
+            <ArticleList
+                view={ArticleView.BIG}
+                articles={
+                    new Array(16)
+                        .fill(0)
+                        .map((item, index) => ({
+                            ...article,
+                            id: String(index),
+                        }))
+                }
+            />
         </div>
     );
 };
