@@ -14,6 +14,7 @@ import {
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Country } from '../../../entities/Country';
 import { Currency } from '../../../entities/Currency';
+import { Page } from '../../../shared/ui/Page/Page';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -81,7 +82,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 {validateErrors?.length && validateErrors.map((error) => (
                     <Text key={error} theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />
@@ -100,7 +101,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

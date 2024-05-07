@@ -1,4 +1,5 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ArticleLimit } from '../../../../entities/Article/model/types/article';
 import { StateSchema } from '../../../../app/providers/StoreProvider';
 import { Article, ArticleView } from '../../../../entities/Article';
 import { ArticlesPageSchema } from '../../../../pages/ArticlesPage';
@@ -20,15 +21,21 @@ const articlesPageSlice = createSlice({
         error: undefined,
         ids: [],
         entities: {},
-        view: ArticleView.SMALL,
+        view: ArticleView.GRID,
+        page: 1,
+        hasMore: true,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
             localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
         },
-        initState: (state) => {
-            state.view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+        setPage: (state, action: PayloadAction<number>) => {
+            state.page = action.payload;
+        },
+        initState: (state, action: PayloadAction<ArticleView>) => {
+            state.view = action.payload;
+            state.limit = (state.view === ArticleView.GRID ? ArticleLimit.GRID_LIMIT : ArticleLimit.LIST_LIMIT);
         },
     },
     extraReducers: (builder) => {
@@ -42,7 +49,10 @@ const articlesPageSlice = createSlice({
                 action: PayloadAction<Article[]>,
             ) => {
                 state.isLoading = false;
-                articlesAdapter.setAll(state, action.payload);
+                articlesAdapter.addMany(state, action.payload);
+                // setAll: принимает массив сущностей или объект в форме Record<EntityId, T>
+                //  и заменяет все существующие сущности значениями в массиве.
+                state.hasMore = action.payload.length > 0;
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;
