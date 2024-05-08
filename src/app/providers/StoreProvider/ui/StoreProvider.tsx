@@ -18,13 +18,16 @@ export const StoreProvider = (props: StoreProviderProps) => {
         asyncReducers,
     } = props;
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const store = createReduxStore(
         initialState as StateSchema,
         asyncReducers as ReducersMapObject<StateSchema>,
-        navigate,
+        // navigate,
     );
+
+    // console.log('render'); // каждый раз, когда переходили на другую страницу, создавался новый стор и в провайдер попадал новый стор. Так делать нельзя!!!
+    // поэтому navigate удаляем
 
     return (
         <Provider store={store}>
