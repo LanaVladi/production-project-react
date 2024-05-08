@@ -39,7 +39,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         </>
     );
 
-    if (view === ArticleView.BIG) {
+    if (view === ArticleView.LIST) {
         const textBlock = article.blocks.find(
             (block) => block.type === ArticleBlockType.TEXT,
         ) as ArticleTextBlock;
@@ -60,7 +60,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     )}
                     <div className={cls.footer}>
                         <Button onClick={onOpenArticle} theme={ButtonTheme.OUTLINE}>
-                            {t('Читать далее...')}
+                            {t('Read more')}
                         </Button>
                         {views}
                     </div>

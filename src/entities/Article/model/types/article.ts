@@ -37,8 +37,13 @@ export enum ArticleType {
 }
 
 export enum ArticleView {
-    BIG = 'BIG',
-    SMALL = 'SMALL',
+    LIST = 'LIST',
+    GRID = 'GRID',
+}
+
+export enum ArticleLimit {
+    LIST_LIMIT = 4,
+    GRID_LIMIT = 9,
 }
 
 export interface Article {
