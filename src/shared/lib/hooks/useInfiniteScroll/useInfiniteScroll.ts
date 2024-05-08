@@ -27,8 +27,10 @@ export function useInfiniteScroll({ callback, wrapperRef, triggerRef }: UseInfin
         }
 
         return () => {
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            observer?.unobserve(triggerRef.current);
+            if (observer && triggerRef.current) {
+                // eslint-disable-next-line react-hooks/exhaustive-deps
+                observer?.unobserve(triggerRef.current);
+            }
         };
     }, [callback, triggerRef, wrapperRef]);
 }
