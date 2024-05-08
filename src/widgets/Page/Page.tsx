@@ -2,7 +2,11 @@ import {
     memo, MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
 import { useLocation } from 'react-router-dom';
-import { scrollRestorationActions } from '../../features/ScrollRestoration';
+import { useSelector } from 'react-redux';
+import { useThrottle } from '../../shared/lib/hooks/useThrottle';
+import { useInitialEffect } from '../../shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { StateSchema } from '../../app/providers/StoreProvider';
+import { getScrollRestorationByPath, scrollRestorationActions } from '../../features/ScrollRestoration';
 import { useAppDispatch } from '../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '../../shared/lib/classNames/classNames';
 import { useInfiniteScroll } from '../../shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
@@ -20,6 +24,7 @@ export const Page = memo((props: PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const location = useLocation();
+    const scrollPosition = useSelector((state: StateSchema) => getScrollRestorationByPath(state, location.pathname));
 
     useInfiniteScroll({
         triggerRef,
@@ -28,13 +33,18 @@ export const Page = memo((props: PageProps) => {
         callback: onScrollEnd,
     });
 
-    const scrollHandler = (e:UIEvent<HTMLDivElement>) => {
+    useInitialEffect(() => {
+        wrapperRef.current.scrollTop = scrollPosition; // восстанавливаем позицию скролла из стейта
+    });
+
+    const scrollHandler = useThrottle((e:UIEvent<HTMLDivElement>) => {
         // console.log('scroll', e.currentTarget.scrollTop); // position in px from the very top point of the page
+        console.log('SCROLL');
         dispatch(scrollRestorationActions.setScrollPosition({
             path: location.pathname, // 'scrollPath'
-            position: e.currentTarget.scrollTop,
+            position: e.currentTarget.scrollTop, // отправляем в стейт позицию скролла
         }));
-    };
+    }, 0);
 
     return (
         <section
