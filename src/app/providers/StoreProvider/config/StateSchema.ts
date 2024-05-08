@@ -11,10 +11,12 @@ import { CounterSchema } from '../../../../entities/Counter';
 import { UserSchema } from '../../../../entities/User';
 import { ArticleDetailsCommentsSchema } from '../../../../pages/ArticleDetailsPage/model/types/ArticleDetailsCommentsSchema';
 import { ArticlesPageSchema } from '../../../../pages/ArticlesPage';
+import { ScrollRestorationSchema } from '../../../../features/ScrollRestoration';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    scrollRestoration: ScrollRestorationSchema;
 
      // Асинхронные редюсеры
     LoginForm?: LoginSchema;

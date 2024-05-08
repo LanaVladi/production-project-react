@@ -7,6 +7,7 @@ import { counterReducer } from '../../../../entities/Counter';
 import { userReducer } from '../../../../entities/User';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './ReducerManager';
+import { scrollRestorationReducer } from '../../../../features/ScrollRestoration';
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -16,6 +17,7 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scrollRestoration: scrollRestorationReducer,
 
         // // Асинхронные редюсеры
         // LoginForm: loginReducer, // для проверки размера бандла при прод
