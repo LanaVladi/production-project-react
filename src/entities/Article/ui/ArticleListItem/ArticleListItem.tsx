@@ -60,7 +60,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     )}
                     <div className={cls.footer}>
                         <Button onClick={onOpenArticle} theme={ButtonTheme.OUTLINE}>
-                            {t('Читать далее...')}
+                            {t('Read more')}
                         </Button>
                         {views}
                     </div>

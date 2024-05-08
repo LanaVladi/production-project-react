@@ -60,7 +60,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(clss.articleDetailsPage, {}, [className])}>
                 <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Назад к списку')}
+                    {t('Back to list')}
                 </Button>
                 <ArticleDetails id={id} />
                 <Text className={clss.commentTitle} title={t('Comments')} />
