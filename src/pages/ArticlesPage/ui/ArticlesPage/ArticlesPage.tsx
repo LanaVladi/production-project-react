@@ -1,6 +1,8 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { initArticlesPage } from '../../../../pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
+import { useInitialEffect } from '../../../../shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchNextArticlesPage } from '../../../../pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { DynamicModuleLoader, ReducersList } from '../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../../../pages/ArticlesPage/model/slices/articlesPageSlice';
@@ -9,13 +11,12 @@ import {
 } from '../../../../entities/Article';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import clss from './ArticlesPage.module.scss';
-import { fetchArticlesList } from '../../../../pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 import {
     getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView,
 } from '../../../../pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '../../../../shared/const/localstorage';
 import { Page } from '../../../../shared/ui/Page/Page';
+import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '../../../../shared/const/localstorage';
 
 interface ArticlesPageProps {
    className?: string;
@@ -41,10 +42,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     useEffect(() => {
         if (__PROJECT__ !== 'storybook') {
             const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
-            dispatch(articlesPageActions.initState(view)); // сначала инициализируем значения лимита, и только потом подгружаем
-            dispatch(fetchArticlesList({
-                page: 1,
-            }));
+            dispatch(initArticlesPage(view));
         }
     }, [dispatch, view]);
 
@@ -65,7 +63,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page onScrollEnd={onLoadNextPart} className={classNames(clss.articlesPage, {}, [className])}>
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 <ArticleList
