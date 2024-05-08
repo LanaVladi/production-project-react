@@ -12,10 +12,10 @@ import {
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import clss from './ArticlesPage.module.scss';
 import {
-    getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView,
+    getArticlesPageError, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView,
 } from '../../../../pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from '../../../../shared/ui/Page/Page';
+import { Page } from '../../../../widgets/Page/Page';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '../../../../shared/const/localstorage';
 
 interface ArticlesPageProps {
@@ -30,6 +30,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const view = useSelector(getArticlesPageView);
     const error = useSelector(getArticlesPageError);
+    const inited = useSelector(getArticlesPageInited);
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
@@ -40,11 +41,25 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch]);
 
     useEffect(() => {
+        // if (!inited) {
         if (__PROJECT__ !== 'storybook') {
             const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
             dispatch(initArticlesPage(view));
+            // dispatch(articlesPageActions.initState(view)); // сначала инициализируем значения лимита, и только потом подгружаем
+            // dispatch(fetchArticlesList({
+            //     page: 1,
+            // }));
         }
+        // }
     }, [dispatch, view]);
+
+    // useInitialEffect(() => {
+    //     dispatch(initArticlesPage);
+    // });
+
+    // useInitialEffect(() => {
+    //     dispatch(initArticlesPage);
+    // });
 
     const reducers: ReducersList = {
         articlesPage: articlesPageReducer,
