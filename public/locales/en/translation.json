@@ -47,5 +47,12 @@
     "Enter comment text": "Enter comment text",
     "Data not found": "Data not found",
     "Read more": "Read more...",
-    "Back to list": "Back to list"
+    "Back to list": "Back to list",
+    "asc": "asc",
+    "desc": "desc",
+    "title": "title",
+    "created": "created",
+    "views": "views",
+    "by": "by",
+    "Sort by": "Sort by"
 }
