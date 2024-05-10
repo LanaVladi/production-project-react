@@ -29,7 +29,6 @@ export const Page = memo((props: PageProps) => {
     useInfiniteScroll({
         triggerRef,
         wrapperRef,
-        // callback: () => console.log('callback'),
         callback: onScrollEnd,
     });
 
@@ -53,7 +52,7 @@ export const Page = memo((props: PageProps) => {
             onScroll={scrollHandler}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </section>
     );
 });
