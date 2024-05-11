@@ -41,7 +41,6 @@
  "Enter option": "Укажите значение",
 
 
-
 "Articles": "Статьи",
 "Article not found": "Статья не найдена",
 "There was an error loading the article":"Произошла ошибка при загрузке статьи",
@@ -62,8 +61,6 @@
 "created": "дате создания",
 "views": "просмотрам",
 "Sort by": "Сортировать по",
-"by": "по"
-
-  
-
-  }
+"by": "по",
+"Search": "Поиск"
+}

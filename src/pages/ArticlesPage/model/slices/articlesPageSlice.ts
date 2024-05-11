@@ -56,19 +56,31 @@ const articlesPageSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchArticlesList.pending, (state) => {
+            .addCase(fetchArticlesList.pending, (state, action) => {
                 state.error = undefined;
                 state.isLoading = true;
+
+                if (action.meta.arg.replace) {
+                    articlesAdapter.removeAll(state);
+                }
             })
             .addCase(fetchArticlesList.fulfilled, (
                 state,
-                action: PayloadAction<Article[]>,
+                action,
             ) => {
                 state.isLoading = false;
-                articlesAdapter.addMany(state, action.payload);
+                state.hasMore = action.payload.length > 0;
+
+                if (action.meta.arg.replace) {
+                    articlesAdapter.setAll(state, action.payload);
+                    // когда у нас есть фильтры нужно, чтобы данные обновлялись, поэтому мы проверяем флаг replace
+                    // и если он есть, заменяем все данные новыми setAll
+                } else {
+                    articlesAdapter.addMany(state, action.payload);
+                    // addMany новые данные подгружаются в конец (при бесконечной ленте),
+                }
                 // setAll: принимает массив сущностей или объект в форме Record<EntityId, T>
                 //  и заменяет все существующие сущности значениями в массиве.
-                state.hasMore = action.payload.length > 0;
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;

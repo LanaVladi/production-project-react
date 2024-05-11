@@ -3,7 +3,7 @@ import {
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useThrottle } from '../../shared/lib/hooks/useThrottle';
+import { useThrottle } from '../../shared/lib/hooks/useThrottle/useThrottle';
 import { useInitialEffect } from '../../shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { StateSchema } from '../../app/providers/StoreProvider';
 import { getScrollRestorationByPath, scrollRestorationActions } from '../../features/ScrollRestoration';

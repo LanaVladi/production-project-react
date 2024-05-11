@@ -1,6 +1,8 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useDebounce } from '../../../../shared/lib/hooks/useDebounce/useDebounce';
+import { fetchArticlesList } from '../../../../pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 import { ArticleSortSelector } from '../../../../entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
 import { SortOrder } from '../../../../shared/types';
 import { Card } from '../../../../shared/ui/Card/Card';
@@ -28,21 +30,33 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     const order = useSelector(getArticlesPageOrder);
     const search = useSelector(getArticlesPageSearch);
 
+    const fetchData = useCallback(() => {
+        dispatch(fetchArticlesList({ replace: true }));
+    }, [dispatch]);
+
+    const debouncedFetchData = useDebounce(fetchData, 500);
+
     const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
     }, [dispatch]);
 
     const onChangeSort = useCallback((newSort: ArticleSortField) => {
         dispatch(articlesPageActions.setSort(newSort));
-    }, [dispatch]);
+        dispatch(articlesPageActions.setPage(1));
+        fetchData();
+    }, [dispatch, fetchData]);
 
     const onChangeOrder = useCallback((newOrder: SortOrder) => {
         dispatch(articlesPageActions.setOrder(newOrder));
-    }, [dispatch]);
+        dispatch(articlesPageActions.setPage(1));
+        fetchData();
+    }, [dispatch, fetchData]);
 
     const onChangeSearch = useCallback((search: string) => {
         dispatch(articlesPageActions.setSearch(search));
-    }, [dispatch]);
+        dispatch(articlesPageActions.setPage(1));
+        debouncedFetchData();
+    }, [dispatch, debouncedFetchData]);
 
     return (
         <div className={classNames(clss.articlesPageFilters, {}, [className])}>
@@ -57,7 +71,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
             </div>
             <Card>
-                <Input placeholder={t('Search')} />
+                <Input value={search} onChange={onChangeSearch} placeholder={t('Search')} />
             </Card>
         </div>
     );
