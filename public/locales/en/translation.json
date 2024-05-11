@@ -55,5 +55,9 @@
     "views": "views",
     "by": "by",
     "Sort by": "Sort by",
-    "Search": "Search"
+    "Search": "Search",
+    "All": "All",
+    "IT": "IT",
+    "Economics": "Economics",
+    "Science": "Science"
 }

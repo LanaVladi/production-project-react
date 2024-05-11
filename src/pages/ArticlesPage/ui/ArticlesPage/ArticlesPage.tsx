@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { initArticlesPage } from '../../../../pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../../../pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { DynamicModuleLoader, ReducersList } from '../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -29,6 +30,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const view = useSelector(getArticlesPageView);
     const error = useSelector(getArticlesPageError);
     const inited = useSelector(getArticlesPageInited);
+    const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
@@ -37,9 +39,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     useEffect(() => {
         if (__PROJECT__ !== 'storybook') {
             const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
-            dispatch(initArticlesPage(view));
+            dispatch(initArticlesPage({ view, searchParams }));
         }
-    }, [dispatch, view]);
+    }, [dispatch, searchParams, view]);
 
     const reducers: ReducersList = {
         articlesPage: articlesPageReducer,

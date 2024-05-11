@@ -38,7 +38,7 @@ export const Page = memo((props: PageProps) => {
 
     const scrollHandler = useThrottle((e:UIEvent<HTMLDivElement>) => {
         // console.log('scroll', e.currentTarget.scrollTop); // position in px from the very top point of the page
-        console.log('SCROLL');
+        // console.log('SCROLL');
         dispatch(scrollRestorationActions.setScrollPosition({
             path: location.pathname, // 'scrollPath'
             position: e.currentTarget.scrollTop, // отправляем в стейт позицию скролла
