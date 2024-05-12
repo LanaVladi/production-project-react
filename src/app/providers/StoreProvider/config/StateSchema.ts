@@ -12,6 +12,7 @@ import { UserSchema } from '../../../../entities/User';
 import { ArticleDetailsCommentsSchema } from '../../../../pages/ArticleDetailsPage/model/types/ArticleDetailsCommentsSchema';
 import { ArticlesPageSchema } from '../../../../pages/ArticlesPage';
 import { ScrollRestorationSchema } from '../../../../features/ScrollRestoration';
+import { ArticleDetailsRecommendationsSchema } from '../../../../pages/ArticleDetailsPage';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -23,6 +24,7 @@ export interface StateSchema {
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
     articleDetailsComments?: ArticleDetailsCommentsSchema;
+    articleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlesPageSchema;
 }
