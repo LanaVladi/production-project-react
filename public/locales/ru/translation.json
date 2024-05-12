@@ -41,7 +41,6 @@
  "Enter option": "Укажите значение",
 
 
-
 "Articles": "Статьи",
 "Article not found": "Статья не найдена",
 "There was an error loading the article":"Произошла ошибка при загрузке статьи",
@@ -54,8 +53,20 @@
 
 "Data not found": "Нет данных для отображения",
 "Read more": "Читать далее...",
-"Back to list": "Назад к списку"
+"Back to list": "Назад к списку",
 
-  
+"asc": "возрастанию",
+"desc": "убыванию",
+"title": "названию",
+"created": "дате создания",
+"views": "просмотрам",
+"Sort by": "Сортировать по",
+"by": "по",
+"Search": "Поиск",
 
-  }
+"All": "Все статьи",
+"IT": "IT",
+"Economics": "Экономика",
+"Science": "Наука",
+"Articles not found": "Статьи не найдены"
+}

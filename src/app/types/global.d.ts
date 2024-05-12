@@ -1,19 +1,3 @@
-// declare module '*.module.scss';
-// // declare module '*.module.scss' {
-// //     const clss: { [className: string]: string };
-// //     export default clss;
-// // }
-
-// declare module '*.svg';
-
-// declare module '*.png';
-// declare module '*.jpg';
-// declare module '*.jpeg';
-
-// declare const GLOBAL_ISDEV: boolean;
-
-// // declare module 'webpack-bundle-analyzer';
-
 declare module '*.scss' {
     interface IClassNames {
         [className: string]: string
@@ -39,5 +23,9 @@ declare const __PROJECT__: 'storybook' | 'frontend' | 'jest';
 type DeepPartial<T> = T extends object ? {
     [P in keyof T]?: DeepPartial<T[P]>;
 } : T;
+
+type OptionalRecord<K extends keyof any, T> = {
+    [P in K]?: T;
+};
 
 // declare module 'case-sensitive-paths-webpack-plugin';

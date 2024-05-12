@@ -3,7 +3,7 @@ import {
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useThrottle } from '../../shared/lib/hooks/useThrottle';
+import { useThrottle } from '../../shared/lib/hooks/useThrottle/useThrottle';
 import { useInitialEffect } from '../../shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { StateSchema } from '../../app/providers/StoreProvider';
 import { getScrollRestorationByPath, scrollRestorationActions } from '../../features/ScrollRestoration';
@@ -29,7 +29,6 @@ export const Page = memo((props: PageProps) => {
     useInfiniteScroll({
         triggerRef,
         wrapperRef,
-        // callback: () => console.log('callback'),
         callback: onScrollEnd,
     });
 
@@ -39,7 +38,7 @@ export const Page = memo((props: PageProps) => {
 
     const scrollHandler = useThrottle((e:UIEvent<HTMLDivElement>) => {
         // console.log('scroll', e.currentTarget.scrollTop); // position in px from the very top point of the page
-        console.log('SCROLL');
+        // console.log('SCROLL');
         dispatch(scrollRestorationActions.setScrollPosition({
             path: location.pathname, // 'scrollPath'
             position: e.currentTarget.scrollTop, // отправляем в стейт позицию скролла
@@ -53,7 +52,7 @@ export const Page = memo((props: PageProps) => {
             onScroll={scrollHandler}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </section>
     );
 });

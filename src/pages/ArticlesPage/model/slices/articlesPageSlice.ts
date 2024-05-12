@@ -1,5 +1,6 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ArticleLimit } from '../../../../entities/Article/model/types/article';
+import { SortOrder } from '../../../../shared/types';
+import { ArticleLimit, ArticleSortField, ArticleType } from '../../../../entities/Article/model/types/article';
 import { StateSchema } from '../../../../app/providers/StoreProvider';
 import { Article, ArticleView } from '../../../../entities/Article';
 import { ArticlesPageSchema } from '../../../../pages/ArticlesPage';
@@ -25,6 +26,11 @@ const articlesPageSlice = createSlice({
         page: 1,
         hasMore: true,
         _inited: false,
+        limit: 9,
+        sort: ArticleSortField.CREATED,
+        order: 'asc',
+        search: '',
+        type: ArticleType.ALL,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -34,6 +40,18 @@ const articlesPageSlice = createSlice({
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
         },
+        setOrder: (state, action: PayloadAction<SortOrder>) => {
+            state.order = action.payload;
+        },
+        setSort: (state, action: PayloadAction<ArticleSortField>) => {
+            state.sort = action.payload;
+        },
+        setType: (state, action: PayloadAction<ArticleType>) => {
+            state.type = action.payload;
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload;
+        },
         initState: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
             state.limit = (state.view === ArticleView.GRID ? ArticleLimit.GRID_LIMIT : ArticleLimit.LIST_LIMIT);
@@ -42,19 +60,31 @@ const articlesPageSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchArticlesList.pending, (state) => {
+            .addCase(fetchArticlesList.pending, (state, action) => {
                 state.error = undefined;
                 state.isLoading = true;
+
+                if (action.meta.arg.replace) {
+                    articlesAdapter.removeAll(state);
+                }
             })
             .addCase(fetchArticlesList.fulfilled, (
                 state,
-                action: PayloadAction<Article[]>,
+                action,
             ) => {
                 state.isLoading = false;
-                articlesAdapter.addMany(state, action.payload);
+                state.hasMore = action.payload.length >= state.limit;
+
+                if (action.meta.arg.replace) {
+                    articlesAdapter.setAll(state, action.payload);
+                    // когда у нас есть фильтры нужно, чтобы данные обновлялись, поэтому мы проверяем флаг replace
+                    // и если он есть, заменяем все данные новыми setAll
+                } else {
+                    articlesAdapter.addMany(state, action.payload);
+                    // addMany новые данные подгружаются в конец (при бесконечной ленте),
+                }
                 // setAll: принимает массив сущностей или объект в форме Record<EntityId, T>
                 //  и заменяет все существующие сущности значениями в массиве.
-                state.hasMore = action.payload.length > 0;
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;
