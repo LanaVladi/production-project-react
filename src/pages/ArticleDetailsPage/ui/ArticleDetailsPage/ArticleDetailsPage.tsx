@@ -1,7 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Page } from '../../../../widgets/Page/Page';
 import { addCommentForArticle } from '../../../../pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
@@ -17,8 +17,6 @@ import clss from './ArticleDetailsPage.module.scss';
 import { getArticleCommentsIsLoading } from '../../../../pages/ArticleDetailsPage/model/selectors/comments';
 import { useInitialEffect } from '../../../../shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
-import { RoutePath } from '../../../../shared/config/routerConfig/routerConfig';
 import {
     getArticleRecommendations,
 } from '../../../../pages/ArticleDetailsPage/model/slices/articleDetailsPageRecommendationsSlice';
@@ -27,6 +25,7 @@ import {
     fetchArticleRecommendations,
 } from '../../../../pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from '../../../../pages/ArticleDetailsPage/model/slices';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
    className?: string;
@@ -45,11 +44,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const recommendations = useSelector(getArticleRecommendations.selectAll);
     const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-    const navigate = useNavigate();
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
@@ -71,9 +65,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(clss.articleDetailsPage, {}, [className])}>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Back to list')}
-                </Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <Text
                     size={TextSize.L}
