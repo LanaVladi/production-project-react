@@ -1,5 +1,9 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '../../../../app/providers/StoreProvider';
 
-export const getArticleRecommendationsIsLoading = (state: StateSchema) => state.articleDetailsRecommendations?.isLoading;
+export const getArticleRecommendationsIsLoading = (state: StateSchema) => {
+    return state.articleDetailsPage?.recommendations?.isLoading;
+};
 
-export const getArticleRecommendationsError = (state: StateSchema) => state.articleDetailsRecommendations?.error;
+export const getArticleRecommendationsError = (state: StateSchema) => {
+    return state.articleDetailsPage?.recommendations?.error;
+};

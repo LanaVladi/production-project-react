@@ -128,7 +128,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to'],
+                ignoreAttribute: ['data-testid', 'to', '_blank'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 150 }],
@@ -143,6 +143,8 @@ module.exports = {
 
         'no-param-reassign': 'off',
         'no-undef': 'off',
+        'arrow-body-style': 'off',
+
         // 'no-param-reassign': ['error', {
         //     props: true,
         //     ignorePropertyModificationsFor: [
