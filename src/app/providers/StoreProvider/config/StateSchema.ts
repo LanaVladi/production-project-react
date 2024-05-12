@@ -2,16 +2,15 @@ import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { NavigateOptions, To } from 'react-router-dom';
 import { AddCommentFormSchema } from '../../../../features/addCommentForm';
 import { ArticleDetailsSchema } from '../../../../entities/Article';
 import { ProfileSchema } from '../../../../entities/Profile';
 import { LoginSchema } from '../../../../features/AuthByUsername/ui';
 import { CounterSchema } from '../../../../entities/Counter';
 import { UserSchema } from '../../../../entities/User';
-import { ArticleDetailsCommentsSchema } from '../../../../pages/ArticleDetailsPage/model/types/ArticleDetailsCommentsSchema';
 import { ArticlesPageSchema } from '../../../../pages/ArticlesPage';
 import { ScrollRestorationSchema } from '../../../../features/ScrollRestoration';
+import { ArticleDetailsPageSchema } from '../../../../pages/ArticleDetailsPage';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -22,9 +21,12 @@ export interface StateSchema {
     LoginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
-    articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlesPageSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema;
+     // articleDetailsComments?: ArticleDetailsCommentsSchema;
+    // articleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
+    // 2 редьюсера объединили в одной схеме  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
