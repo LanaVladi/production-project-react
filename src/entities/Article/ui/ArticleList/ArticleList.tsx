@@ -16,12 +16,6 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 9 : 3)
-    .fill(0)
-    .map((item, index) => (
-        <ArticleListItemSkeleton className={clss.card} key={index} view={view} />
-    ));
-
 export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
@@ -31,6 +25,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
         target,
     } = props;
     const { t } = useTranslation();
+
+    const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 9 : 3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton className={clss.card} key={index} view={view} />
+        ));
 
     const renderArticle = (article: Article) => (
         <ArticleListItem
@@ -42,16 +42,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
         />
     );
 
-    if (!isLoading && !articles.length) {
-        return (
-            <div className={classNames(clss.ArticleList, {}, [className, clss[view]])}>
-                <Text
-                    size={TextSize.L}
-                    title={t('Articles not found')}
-                />
-            </div>
-        );
-    }
+    // if (!isLoading && !articles.length) {
+    //     return (
+    //         <div className={classNames(clss.ArticleList, {}, [className, clss[view]])}>
+    //             <Text
+    //                 size={TextSize.L}
+    //                 title={t('Articles not found')}
+    //             />
+    //         </div>
+    //     );
+    // }
 
     return (
         <div className={classNames(clss.ArticleList, {}, [className, clss[view]])}>
