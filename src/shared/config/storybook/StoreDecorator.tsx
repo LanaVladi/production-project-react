@@ -7,6 +7,7 @@ import { loginReducer } from '../../../features/AuthByUsername/model/slice/Login
 import { articleDetailsReducer } from '../../../entities/Article/model/slice/articleDetailsSlice';
 import { addCommentFormReducer } from '../../../features/addCommentForm/model/slices/addCommentFormSlice';
 import { articleDetailsPageReducer } from '../../../pages/ArticleDetailsPage/model/slices';
+import { articlesPageReducer } from '../../../pages/ArticlesPage/model/slices/articlesPageSlice';
 
 const defaultAsyncReducers: ReducersList = {
     LoginForm: loginReducer,
@@ -14,6 +15,7 @@ const defaultAsyncReducers: ReducersList = {
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
     articleDetailsPage: articleDetailsPageReducer,
+    articlesPage: articlesPageReducer,
 };
 
 export const StoreDecorator = (

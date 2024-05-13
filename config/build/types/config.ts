@@ -5,6 +5,8 @@ export interface BuildPaths {
     build: string;
     html: string;
     src: string;
+    locales: string; // путь до файлов с переводами
+    buildLocales: string; // путь куда переводы перемещать
 }
 
 export interface BuildEnv {

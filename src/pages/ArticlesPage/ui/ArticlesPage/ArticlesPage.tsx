@@ -47,16 +47,16 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         articlesPage: articlesPageReducer,
     };
 
-    if (error) {
-        return (
-            <DynamicModuleLoader reducers={reducers}>
-                <Page className={classNames(clss.articlesPage, {}, [className])}>
-                    <div>{t('Data not found')}</div>
+    // if (error) {
+    //     return (
+    //         <DynamicModuleLoader reducers={reducers}>
+    //             <Page className={classNames(clss.articlesPage, {}, [className])}>
+    //                 <div>{t('Data not found')}</div>
 
-                </Page>
-            </DynamicModuleLoader>
-        );
-    }
+    //             </Page>
+    //         </DynamicModuleLoader>
+    //     );
+    // }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
