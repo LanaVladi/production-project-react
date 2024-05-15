@@ -104,6 +104,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'sweetlanas-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -144,6 +145,8 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'arrow-body-style': 'off',
+        'linebreak-style': ['off', 'windows'],
+        'sweetlanas-plugin/path-checker': 'error',
 
         // 'no-param-reassign': ['error', {
         //     props: true,
