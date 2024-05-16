@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { HStack, VStack } from '../../../../shared/ui/Stack';
 import { Loader } from '../../../../shared/ui/Loader/Loader';
 import { classNames, Mods } from '../../../../shared/lib/classNames/classNames';
 import { Text, TextAlign, TextTheme } from '../../../../shared/ui/Text/Text';
@@ -40,22 +41,22 @@ export const ProfileCard = (props : ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(clss.ProfileCard, { [clss.loading]: true }, [className])}>
+            <HStack justify="center" max className={classNames(clss.ProfileCard, { [clss.loading]: true }, [className])}>
                 <Loader />
-            </div>
+            </HStack>
         );
     }
 
     if (error) {
         return (
-            <div className={classNames(clss.ProfileCard, {}, [className, clss.error])}>
+            <HStack justify="center" max className={classNames(clss.ProfileCard, {}, [className, clss.error])}>
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Error text')}
                     text={t('Try refreshing the page')}
                     align={TextAlign.CENTER}
                 />
-            </div>
+            </HStack>
         );
     }
 
@@ -64,12 +65,12 @@ export const ProfileCard = (props : ProfileCardProps) => {
     };
 
     return (
-        <div className={classNames(clss.ProfileCard, {}, [className])}>
+        <VStack gap="8" max className={classNames(clss.ProfileCard, mods, [className])}>
             <div className={clss.data}>
                 {data?.avatar && (
-                    <div className={clss.avatarWrapper}>
+                    <HStack justify="center" max className={clss.avatarWrapper}>
                         <Avatar src={data?.avatar} />
-                    </div>
+                    </HStack>
                 )}
                 <Input
                     value={data?.first}
@@ -126,6 +127,6 @@ export const ProfileCard = (props : ProfileCardProps) => {
                     readonly={readonly}
                 />
             </div>
-        </div>
+        </VStack>
     );
 };

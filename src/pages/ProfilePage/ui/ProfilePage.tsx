@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { VStack } from '../../../shared/ui/Stack';
 import { useInitialEffect } from '../../../shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from '../../../shared/ui/Text/Text';
 import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -83,24 +84,26 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames('', {}, [className])}>
-                <ProfilePageHeader />
-                {validateErrors?.length && validateErrors.map((error) => (
-                    <Text key={error} theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />
-                ))}
-                <ProfileCard
-                    data={formData}
-                    isLoading={isLoading}
-                    error={error}
-                    readonly={readonly}
-                    onChangeFirstName={onChangeFirstName}
-                    onChangeLastName={onChangeLastName}
-                    onChangeAge={onChangeAge}
-                    onChangeCity={onChangeCity}
-                    onChangeUsername={onChangeUsername}
-                    onChangeAvatar={onChangeAvatar}
-                    onChangeCurrency={onChangeCurrency}
-                    onChangeCountry={onChangeCountry}
-                />
+                <VStack gap="16" max>
+                    <ProfilePageHeader />
+                    {validateErrors?.length && validateErrors.map((error) => (
+                        <Text key={error} theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />
+                    ))}
+                    <ProfileCard
+                        data={formData}
+                        isLoading={isLoading}
+                        error={error}
+                        readonly={readonly}
+                        onChangeFirstName={onChangeFirstName}
+                        onChangeLastName={onChangeLastName}
+                        onChangeAge={onChangeAge}
+                        onChangeCity={onChangeCity}
+                        onChangeUsername={onChangeUsername}
+                        onChangeAvatar={onChangeAvatar}
+                        onChangeCurrency={onChangeCurrency}
+                        onChangeCountry={onChangeCountry}
+                    />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     );
