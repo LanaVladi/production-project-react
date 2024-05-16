@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
+import { HStack } from '../../../../shared/ui/Stack';
 import { getUserAuthData } from '../../../../entities/User';
 import {
     getProfileData, getProfileReadonly, profileActions, updateProfileData,
@@ -9,7 +10,6 @@ import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
 import { Text } from '../../../../shared/ui/Text/Text';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
-import clss from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -40,14 +40,13 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(clss.ProfilePageHeader, {}, [className])}>
+        <HStack max justify="between" className={classNames('', {}, [className])}>
             <Text title={t('Profile')} />
             {isCanEdit && (
-                <div className={clss.btnsWrapper}>
+                <div>
                     {readonly
                         ? (
                             <Button
-                                className={clss.editBtn}
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onEdit}
                             >
@@ -55,26 +54,24 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                             </Button>
                         )
                         : (
-                            <>
+                            <HStack gap="8">
                                 <Button
-                                    className={clss.editBtn}
                                     theme={ButtonTheme.OUTLINE_RED}
                                     onClick={onCancelEdit}
                                 >
                                     {t('Cancel')}
                                 </Button>
                                 <Button
-                                    className={clss.saveBtn}
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={onSave}
                                 >
                                     {t('Save')}
                                 </Button>
-                            </>
+                            </HStack>
                         )}
                 </div>
             )}
 
-        </div>
+        </HStack>
     );
 };

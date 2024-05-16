@@ -7,6 +7,7 @@ import { LangSwitcher } from '../../../../widgets/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from '../../../../shared/ui/Button/Button';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../../../widgets/Sidebar/model/selectors/getSidebarItems';
+import { VStack } from '../../../../shared/ui/Stack';
 
 interface SidebarProps {
     className?: string;
@@ -48,9 +49,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={clss.items}>
+            <VStack gap="8" className={clss.items}>
                 {itemsList}
-            </div>
+            </VStack>
 
             <div className={clss.switchers}>
                 <ThemeSwitcher />
