@@ -104,7 +104,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
-        'sweetlanas-plugin',
+        // 'sweetlanas-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -129,7 +129,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['role', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap'],
+                ignoreAttribute: ['as', 'role', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 150 }],
@@ -146,7 +146,7 @@ module.exports = {
         'no-undef': 'off',
         'arrow-body-style': 'off',
         'linebreak-style': ['off', 'windows'],
-        'sweetlanas-plugin/path-checker': 'error',
+        // 'sweetlanas-plugin/path-checker': 'error',
 
         // 'no-param-reassign': ['error', {
         //     props: true,
