@@ -1,8 +1,9 @@
-import { Fragment, ReactNode, useState } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import clss from './ListBox.module.scss';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import { Button } from '../Button/Button';
+import { HStack } from '../Stack';
 
 export interface ListBoxItem {
     value: string;
@@ -36,7 +37,7 @@ export function ListBox(props: ListBoxProps) {
     // const optionsClasses = [mapDirectionClass[direction]]; // либо можно через маппер сделать
 
     return (
-        <>
+        <HStack gap="4">
             {label && <span>{`${label}>`}</span>}
             <HListbox
                 as="div"
@@ -76,6 +77,6 @@ export function ListBox(props: ListBoxProps) {
                     ))}
                 </HListbox.Options>
             </HListbox>
-        </>
+        </HStack>
     );
 }
