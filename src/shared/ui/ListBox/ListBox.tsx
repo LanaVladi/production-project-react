@@ -4,14 +4,13 @@ import clss from './ListBox.module.scss';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import { Button } from '../Button/Button';
 import { HStack } from '../Stack';
+import { DropdownDirection } from '../../../shared/types/ui';
 
 export interface ListBoxItem {
     value: string;
     content: ReactNode;
     disabled?: boolean;
 }
-type DropdownDirection = 'top' | 'bottom';
-
 export interface ListBoxProps {
     items?: ListBoxItem[];
     className?: string;
@@ -23,18 +22,21 @@ export interface ListBoxProps {
     direction?: DropdownDirection;
 }
 
-// const mapDirectionClass: Record<DropdownDirection, string> = {
-//     bottom: clss.optionsBottom,
-//     top: clss.optionsTop,
-// };   // либо можно через маппер сделать
+const mapDirectionClass: Record<DropdownDirection, string> = {
+    'bottom left': clss.optionsBottomLeft,
+    'bottom right': clss.optionsBottomRight,
+    'top right': clss.optionsTopRight,
+    'top left': clss.optionsTopLeft,
+};
+// либо можно через маппер сделать
 
 export function ListBox(props: ListBoxProps) {
     const {
-        items, className, onChange, defaultValue, value, label, readonly, direction,
+        items, className, onChange, defaultValue, value, label, readonly, direction = 'bottom right',
     } = props;
 
-    const optionsClasses = [clss[direction || 'bottom']];
-    // const optionsClasses = [mapDirectionClass[direction]]; // либо можно через маппер сделать
+    // const optionsClasses = [clss[direction || 'bottom right']];
+    const optionsClasses = [mapDirectionClass[direction]]; // либо можно через маппер сделать
 
     return (
         <HStack gap="4">
@@ -50,6 +52,8 @@ export function ListBox(props: ListBoxProps) {
                     <Button disabled={readonly}>
                         {value ?? defaultValue}
                     </Button>
+                    {/* // react-dom.development.js:67 Warning: validateDOMNesting(...): <button> cannot appear as a descendant of <button>. */}
+                    {/* TO DO: FIX IT!!! */}
                 </HListbox.Button>
                 <HListbox.Options className={classNames(clss.options, {}, optionsClasses)}>
                     {items?.map((item) => (

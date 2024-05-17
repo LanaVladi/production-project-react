@@ -1,6 +1,8 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { Dropdown } from '../../../shared/ui/Dropdown/Dropdown';
+import { Avatar } from '../../../shared/ui/Avatar/Avatar';
 import { Text, TextTheme } from '../../../shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from '../../../shared/ui/appLink/AppLink';
 import { RoutePath } from '../../../shared/config/routerConfig/routerConfig';
@@ -40,9 +42,22 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 <AppLink to={RoutePath.article_create} theme={AppLinkTheme.SECONDARY} className={clss.createBtn}>
                     {t('Create a new article')}
                 </AppLink>
-                <Button className={classNames(clss.links)} theme={ButtonTheme.CLEAR} type="button" onClick={onLogOut}>
-                    {t('Sign out')}
-                </Button>
+
+                <Dropdown
+                    direction="bottom left"
+                    className={clss.dropdown}
+                    trigger={<Avatar size={30} src={authData.avatar} />}
+                    items={[
+                        {
+                            content: t('Profile'),
+                            href: RoutePath.profile + authData.id,
+                        },
+                        {
+                            content: t('Sign out'),
+                            onClick: onLogOut,
+                        },
+                    ]}
+                />
             </header>
         );
     }
