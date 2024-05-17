@@ -17,5 +17,12 @@
 
     "files.associations": {
         "**/.fttemplates/**": "plaintext",
-        }
+        },
+        // // "eslint.options": {
+        //     "editor.codeActionsOnSave": {
+        //         "source.fixAll.eslint": "always"
+        //               },
+              
+        //       "eslint.validate": ["javascript"]
+        // // }
 }
