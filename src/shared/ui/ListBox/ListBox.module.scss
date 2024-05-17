@@ -18,9 +18,9 @@
     box-shadow: 4px 4px 8px var(--listbox-bg);
     cursor: pointer;
 
-    &.top {
-        bottom: 100%;
-    }
+    // &.top {
+    //     bottom: 100%;
+    // }
 }
 
 .item {
@@ -35,7 +35,24 @@
     opacity: 0.7;
 }
 
-// .optionsTop {
-//     bottom: 100%;
-// }
-// свойство, когда через маппер делаем
+.optionsBottomLeft {
+    top: 100%;
+    right: 0;
+}
+
+.optionsBottomRight {
+    top: 100%;
+    left: 0;
+}
+
+.optionsTopRight {
+    bottom: 100%;
+    left: 0;
+}
+
+.optionsTopLeft {
+    right: 0;
+    bottom: 100%;
+}
+
+// свойства, когда через маппер делаем
