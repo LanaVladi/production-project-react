@@ -1,7 +1,7 @@
 import {
     CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { NavigateOptions, To } from 'react-router-dom';
+import { rtkApi } from '../../../../shared/api/rtkApi';
 import { $api } from '../../../../shared/api/api';
 import { counterReducer } from '../../../../entities/Counter';
 import { userReducer } from '../../../../entities/User';
@@ -18,7 +18,7 @@ export function createReduxStore(
         counter: counterReducer,
         user: userReducer,
         scrollRestoration: scrollRestorationReducer,
-
+        [rtkApi.reducerPath]: rtkApi.reducer,
         // // Асинхронные редюсеры
         // LoginForm: loginReducer, // для проверки размера бандла при прод
     };
@@ -37,9 +37,10 @@ export function createReduxStore(
             thunk: {
                 extraArgument: {
                     api: $api,
+
                 },
             },
-        }),
+        }).concat(rtkApi.middleware),
     });
 
     // @ts-ignore

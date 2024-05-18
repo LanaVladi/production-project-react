@@ -11,11 +11,13 @@ import { UserSchema } from '../../../../entities/User';
 import { ArticlesPageSchema } from '../../../../pages/ArticlesPage';
 import { ScrollRestorationSchema } from '../../../../features/ScrollRestoration';
 import { ArticleDetailsPageSchema } from '../../../../pages/ArticleDetailsPage';
+import { rtkApi } from '../../../../shared/api/rtkApi';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
     scrollRestoration: ScrollRestorationSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
      // Асинхронные редюсеры
     LoginForm?: LoginSchema;
