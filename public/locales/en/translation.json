@@ -63,6 +63,8 @@
     "Articles not found": "Articles not found",
     "Recommendations": "Recommendations",
     "Create a new article": "Create a new article",
-    "Editing an article with ID": "Editing an article with ID "
-    
+    "Editing an article with ID": "Editing an article with ID ",
+    "Error loading articles": "Error loading articles",
+    "Profile not found": "Profile not found"
+
 }

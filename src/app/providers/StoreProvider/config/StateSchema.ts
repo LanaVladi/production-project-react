@@ -4,18 +4,20 @@ import {
 import { AxiosInstance } from 'axios';
 import { AddCommentFormSchema } from '../../../../features/addCommentForm';
 import { ArticleDetailsSchema } from '../../../../entities/Article';
-import { ProfileSchema } from '../../../../entities/Profile';
 import { LoginSchema } from '../../../../features/AuthByUsername/ui';
 import { CounterSchema } from '../../../../entities/Counter';
 import { UserSchema } from '../../../../entities/User';
 import { ArticlesPageSchema } from '../../../../pages/ArticlesPage';
 import { ScrollRestorationSchema } from '../../../../features/ScrollRestoration';
 import { ArticleDetailsPageSchema } from '../../../../pages/ArticleDetailsPage';
+import { rtkApi } from '../../../../shared/api/rtkApi';
+import { ProfileSchema } from '../../../../features/editableProfileCard';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
     scrollRestoration: ScrollRestorationSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
      // Асинхронные редюсеры
     LoginForm?: LoginSchema;

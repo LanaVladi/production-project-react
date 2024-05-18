@@ -34,8 +34,10 @@ export function buildPlugins({
     ];
 
     // plugins.push(new BundleAnalyzerPlugin({
-    //     openAnalyzer: false,
-    // })); // при pre commit убираем из прод
+    //     openAnalyzer: true,
+    // }));
+    // // для проверки bundle
+    // // при pre commit обязательно убираем из прод
 
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin()); // An EXPERIMENTAL Webpack plugin to enable "Fast Refresh"

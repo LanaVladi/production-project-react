@@ -42,16 +42,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
         />
     );
 
-    // if (!isLoading && !articles.length) {
-    //     return (
-    //         <div className={classNames(clss.ArticleList, {}, [className, clss[view]])}>
-    //             <Text
-    //                 size={TextSize.L}
-    //                 title={t('Articles not found')}
-    //             />
-    //         </div>
-    //     );
-    // }
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(clss.ArticleList, {}, [className, clss[view]])}>
+                <Text
+                    size={TextSize.L}
+                    title={t('Articles not found')}
+                />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(clss.ArticleList, {}, [className, clss[view]])}>
@@ -62,5 +62,3 @@ export const ArticleList = memo((props: ArticleListProps) => {
         </div>
     );
 });
-
-// TO FIX: SKELETON DOEN'T WORK, ARTICLES NOT FOUND SHOWS EVERY TIME
