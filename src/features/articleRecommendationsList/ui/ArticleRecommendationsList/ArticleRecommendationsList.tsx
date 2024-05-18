@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
@@ -17,7 +18,18 @@ const recommendationsApi = rtkApi.injectEndpoints({
                 url: '/articles',
                 params: {
                     _limit: limit,
-
+                    aAFAFAF: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
+                    aAFAFAF2: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
+                    aAFAFAF3: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
+                    aAFAFAF4: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
+                    aAFAFAF5: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
+                    aAFAFAF7: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
+                    aAFAFAF8: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
+                    aAFAFAF9: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
+                    aAFAFAF10: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
+                    aAFAFAF11: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
+                    aAFAFAF12: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
+                    aAFAFAF6: 'ggggkfakgfkgfa;kkzgalgmjgljnjgsghlnhafkhhhhhhhhhhhhhhhhhhhhhhhhhhhhafhyufffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhw555555555555555555555555555555555555555555555555555555555555555555555555555222222222222222222222222222222222222222ffffffffffffffffffffffffffffffffffffffffffffff',
                 },
 
             }),

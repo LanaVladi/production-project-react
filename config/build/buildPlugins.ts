@@ -33,17 +33,19 @@ export function buildPlugins({
         }),
     ];
 
-    // plugins.push(new BundleAnalyzerPlugin({
-    //     openAnalyzer: false,
-    // })); // при pre commit убираем из прод
+    plugins.push(new BundleAnalyzerPlugin({
+        openAnalyzer: true,
+    }));
+    // для проверки bundle
+    // при pre commit обязательно убираем из прод
 
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin()); // An EXPERIMENTAL Webpack plugin to enable "Fast Refresh"
         // (also previously known as Hot Reloading) for React components. -  isDev
         plugins.push(new webpack.HotModuleReplacementPlugin()); // Hot Module Replacement (HMR) - isDev
-        plugins.push(new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-        }));
+        // plugins.push(new BundleAnalyzerPlugin({
+        //     openAnalyzer: false,
+        // }));
     }
 
     return plugins;
