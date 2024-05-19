@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Key, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -19,7 +19,6 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-// import clss from './ArticlesPage.module.scss';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -30,7 +29,7 @@ const reducers: ReducersList = {
     profile: profileReducer,
 };
 
-export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
+export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((props: EditableProfileCardProps) => {
     const { className, id } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
@@ -97,7 +96,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
             <VStack
                 gap="8"
                 max
-                // className={classNames(cls.EditableProfileCard, {}, [className])}
                 className={classNames('', {}, [className])}
             >
                 <EditableProfileCardHeader />
@@ -106,6 +104,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                         key={error}
                         theme={TextTheme.ERROR}
                         text={validateErrorTranslates[error]}
+                        data-testid="EditableProfileCard.Error"
                     />
                 ))}
                 <ProfileCard
