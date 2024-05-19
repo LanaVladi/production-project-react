@@ -5,6 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import { analyze } from 'eslint-scope';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({
@@ -44,6 +45,11 @@ export function buildPlugins({
         plugins.push(new ReactRefreshWebpackPlugin()); // An EXPERIMENTAL Webpack plugin to enable "Fast Refresh"
         // (also previously known as Hot Reloading) for React components. -  isDev
         plugins.push(new webpack.HotModuleReplacementPlugin()); // Hot Module Replacement (HMR) - isDev
+
+        plugins.push(new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
+        }));
     }
 
     return plugins;
