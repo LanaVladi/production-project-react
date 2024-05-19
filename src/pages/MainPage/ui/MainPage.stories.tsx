@@ -31,6 +31,7 @@
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator';
+import { StoreDecorator } from '../../../shared/config/storybook/StoreDecorator';
 import { Theme } from '../../../app/providers/themeProvider';
 import MainPage from './MainPage';
 
@@ -44,13 +45,10 @@ export default {
 
 const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 
-// function foo<T extends object>(t: T): T {
-//     return { ...(t as object) } as T;
-// }
-
 export const Normal = Template.bind({});
 Normal.args = {};
+Normal.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
