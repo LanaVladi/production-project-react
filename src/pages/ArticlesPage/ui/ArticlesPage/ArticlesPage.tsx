@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { initArticlesPage } from '../../../../pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../../../pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { DynamicModuleLoader, ReducersList } from '../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articlesPageReducer, getArticles } from '../../../../pages/ArticlesPage/model/slices/articlesPageSlice';
+import { articlesPageReducer } from '../../../../pages/ArticlesPage/model/slices/articlesPageSlice';
 import { ArticleView } from '../../../../entities/Article';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import clss from './ArticlesPage.module.scss';

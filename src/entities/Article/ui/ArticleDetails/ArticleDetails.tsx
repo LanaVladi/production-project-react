@@ -20,7 +20,8 @@ import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '../../../../shared/assets/icons/calendar-20-20.svg';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleBlock, ArticleBlockType } from '../../../../entities/Article/model/types/article';
+import { ArticleBlock } from '../../../../entities/Article/model/types/article';
+import { ArticleBlockType } from '../../../../entities/Article/model/consts/articleConsts';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 
 interface ArticleDetailsProps {

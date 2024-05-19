@@ -5,7 +5,7 @@ import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
 import ListIcon from '../../../../shared/assets/icons/list-24-24.svg';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import cls from './ArticleViewSelector.module.scss';
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/consts/articleConsts';
 
 interface ArticleViewSelectorProps {
     className?: string;
