@@ -4,10 +4,11 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import { analyze } from 'eslint-scope';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({
-    paths, isDev, apiUrl, project,
+    paths, isDev, apiUrl, project, analyze,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({
@@ -33,9 +34,9 @@ export function buildPlugins({
         }),
     ];
 
-    // plugins.push(new BundleAnalyzerPlugin({
-    //     openAnalyzer: true,
-    // }));
+    plugins.push(new BundleAnalyzerPlugin({
+        analyzerMode: analyze ? 'server' : 'disabled',
+    }));
     // // для проверки bundle
     // // при pre commit обязательно убираем из прод
 
@@ -43,9 +44,6 @@ export function buildPlugins({
         plugins.push(new ReactRefreshWebpackPlugin()); // An EXPERIMENTAL Webpack plugin to enable "Fast Refresh"
         // (also previously known as Hot Reloading) for React components. -  isDev
         plugins.push(new webpack.HotModuleReplacementPlugin()); // Hot Module Replacement (HMR) - isDev
-        plugins.push(new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-        }));
     }
 
     return plugins;
