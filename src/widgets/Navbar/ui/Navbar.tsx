@@ -6,7 +6,9 @@ import { Avatar } from '../../../shared/ui/Avatar/Avatar';
 import { Text, TextTheme } from '../../../shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from '../../../shared/ui/appLink/AppLink';
 import { RoutePath } from '../../../shared/config/routerConfig/routerConfig';
-import { getUserAuthData, userActions } from '../../../entities/User';
+import {
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from '../../../entities/User';
 import { LoginModal } from '../../../features/AuthByUsername/ui';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import clss from './Navbar.module.scss';
@@ -18,10 +20,12 @@ interface NavbarProps {
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
+    const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const dispatch = useDispatch();
     const authData = useSelector(getUserAuthData);
-    const { t } = useTranslation();
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -34,6 +38,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const onLogOut = useCallback(() => {
         dispatch(userActions.logOut());
     }, [dispatch]);
+
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     if (authData) {
         return (
@@ -48,6 +54,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     className={clss.dropdown}
                     trigger={<Avatar size={30} src={authData.avatar} />}
                     items={[
+
+                        ...(isAdminPanelAvailable ? [{
+                            content: t('Admin Panel'),
+                            href: RoutePath.admin_panel,
+                        }] : []), // разворачиваем массив и в нем условие, если isAdminPanelAvailable,
+                        // то у нас отрисовывается массив с админ панелью, если нет, то пустой
                         {
                             content: t('Profile'),
                             href: RoutePath.profile + authData.id,

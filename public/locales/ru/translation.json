@@ -5,6 +5,8 @@
   "English":  "English",
   "Main": "Главная",
   "About": "О нас",
+  "Admin Panel": " Админ панель",
+  
   "Page not found": "Страница не найдена",
   "Toggle": "Переключить",
   "En": "En",
@@ -73,5 +75,6 @@
 "Create a new article": "Создание новой статьи",
 "Editing an article with ID": "Редактирование статьи с ID ",
 "Error loading articles": "Ошибка при загрузке статей",
-"Profile not found": "Профиль не найден"
+"Profile not found": "Профиль не найден",
+"You do not have access to this page": "У вас нет доступа к этой странице"
 }
