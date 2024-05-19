@@ -20,12 +20,13 @@
     // с помощью import (require()) module.exports) = commomJS.
     // import Moment from 'moment'; Без флага esModuleInterop результат будет undefinded; console.log('Moment');
     // С флагом esModuleInterop результат будет [object Object]; console.log('Moment');
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
     // Если какая-либо библиотека не имеет default import, // лоадеры вроде ts-loader или babel-loader автоматически создают их
     // вместо такого импорта
     // import * as React from 'react';
     // можно писать такой
     // import React from 'react';
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {

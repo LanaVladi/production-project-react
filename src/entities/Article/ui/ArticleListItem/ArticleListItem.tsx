@@ -9,9 +9,8 @@ import { Icon } from '../../../../shared/ui/Icon/Icon';
 import { Text } from '../../../../shared/ui/Text/Text';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
-import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
-} from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
+import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { AppLink } from '../../../../shared/ui/appLink/AppLink';
 

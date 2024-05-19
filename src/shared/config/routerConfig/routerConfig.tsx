@@ -7,7 +7,7 @@ import { AboutPage } from '../../../pages/AboutPage';
 import { MainPage } from '../../../pages/MainPage';
 import { NotFoundPage } from '../../../pages/NotFoundPage';
 import { ArticleEditPage } from '../../../pages/ArticleEditPage';
-import { UserRole } from '../../../entities/User';
+import { UserRole } from '../../../entities/User/model/consts/userConsts';
 import { ForbiddenPage } from '../../../pages/ForbiddenPage';
 
 export type AppRoutesProps = RouteProps & {

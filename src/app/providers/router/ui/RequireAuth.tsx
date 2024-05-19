@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { getUserAuthData, getUserRoles, UserRole } from '../../../../entities/User';
+import { getUserAuthData, getUserRoles } from '../../../../entities/User';
 import { RoutePath } from '../../../../shared/config/routerConfig/routerConfig';
+import { UserRole } from '../../../../entities/User/model/consts/userConsts';
 
 interface RequireAuthProps {
     children: JSX.Element;
@@ -39,3 +40,18 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
 
     return children;
 }
+
+// export function RequireRoles({ roles }: User) {
+//     const auth = useSelector(getUserAuthData); // инфа об авторизованности пользователя
+//     const location = useLocation();
+
+//     if (!auth) {
+//         // Redirect them to the /login page, but save the current location they were
+//         // trying to go to when they were redirected. This allows us to send them
+//         // along to that page after they login, which is a nicer user experience
+//         // than dropping them off on the home page.
+//         return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
+//     }
+
+//     return roles;
+// }
