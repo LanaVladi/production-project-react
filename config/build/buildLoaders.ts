@@ -18,21 +18,24 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     };
 
-    const babelLoader = buildBabelLoader(options);
+    const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
     const cssLoader = buildCssLoader(isDev);
 
     // если не используем typescript, то нужен babel-loader
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+    // const typescriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // };
 
     return [
         svgLoader,
-        babelLoader,
-        typescriptLoader, // важен порядок лоадеров, чтение снизу вверх,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        // babelLoader,
+        // typescriptLoader, // важен порядок лоадеров, чтение снизу вверх,
         //  т.к. мы используем ts, то его ставим первым, потом babelLoader, чтобы не было конфликта
         cssLoader,
     ];
