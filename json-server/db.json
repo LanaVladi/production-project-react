@@ -602,15 +602,22 @@
         "id": "1",
         "username": "admin",
         "password": "123",
-        "role": "ADMIN",
+        "roles": ["ADMIN"],
         "avatar": "https://variety.com/wp-content/uploads/2021/04/Avatar.jpg?w=800&h=533&crop=1"
       },
       {
         "id": "2",
         "username": "user",
         "password": "123",
-        "role": "USER",
+        "roles": ["USER"],
         "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+      },
+      {
+        "id": "3",
+        "username": "manager",
+        "password": "123",
+        "roles": ["MANAGER"],
+        "avatar": "https://www.apu.apus.edu/images/site/content/apu/supply-chain-manager.jpg"
       }
     ],
     "profile": [
