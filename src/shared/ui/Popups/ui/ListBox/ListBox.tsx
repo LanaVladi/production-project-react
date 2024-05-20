@@ -1,10 +1,12 @@
 import { Fragment, ReactNode } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import clss from './ListBox.module.scss';
-import { classNames } from '../../../shared/lib/classNames/classNames';
-import { Button } from '../Button/Button';
-import { HStack } from '../Stack';
-import { DropdownDirection } from '../../../shared/types/ui';
+import { classNames } from '../../../../lib/classNames/classNames';
+import { Button } from '../../../Button/Button';
+import { HStack } from '../../../Stack';
+import { DropdownDirection } from '../../../../types/ui';
+import { mapDirectionClass } from '../../styles/consts';
+import popupCls from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
     value: string;
@@ -22,14 +24,6 @@ export interface ListBoxProps {
     direction?: DropdownDirection;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': clss.optionsBottomLeft,
-    'bottom right': clss.optionsBottomRight,
-    'top right': clss.optionsTopRight,
-    'top left': clss.optionsTopLeft,
-};
-// либо можно через маппер сделать
-
 export function ListBox(props: ListBoxProps) {
     const {
         items, className, onChange, defaultValue, value, label, readonly, direction = 'bottom right',
@@ -43,12 +37,12 @@ export function ListBox(props: ListBoxProps) {
             {label && <span>{`${label}>`}</span>}
             <HListbox
                 as="div"
-                className={classNames(clss.listBox, {}, [className])}
+                className={classNames(clss.listBox, {}, [className, popupCls.popup])}
                 value={value}
                 onChange={onChange}
                 disabled={readonly}
             >
-                <HListbox.Button disabled={readonly} className={clss.trigger}>
+                <HListbox.Button disabled={readonly} className={popupCls.trigger}>
                     <Button disabled={readonly}>
                         {value ?? defaultValue}
                     </Button>
@@ -68,8 +62,8 @@ export function ListBox(props: ListBoxProps) {
                                     className={classNames(
                                         clss.item,
                                         {
-                                            [clss.active]: active,
-                                            [clss.disabled]: item.disabled,
+                                            [popupCls.active]: active,
+                                            [popupCls.disabled]: item.disabled,
                                         },
                                     )}
                                 >
