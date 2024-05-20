@@ -1,4 +1,5 @@
 import { memo, useCallback, useState } from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
 import { Icon } from '../../../../shared/ui/Icon/Icon';
@@ -32,18 +33,21 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 
     return (
         <div>
-            <Popover
-                className={classNames(cls.NotificationButton, {}, [className])}
-                direction="bottom left"
-                trigger={trigger}
-            >
-                <NotificationList className={cls.notifications} />
-            </Popover>
-            {trigger}
-            <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                <NotificationList />
-            </Drawer>
+            <BrowserView>
+                <Popover
+                    className={classNames(cls.NotificationButton, {}, [className])}
+                    direction="bottom left"
+                    trigger={trigger}
+                >
+                    <NotificationList className={cls.notifications} />
+                </Popover>
+            </BrowserView>
+            <MobileView>
+                {trigger}
+                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                    <NotificationList />
+                </Drawer>
+            </MobileView>
         </div>
-
     );
 });
