@@ -1,7 +1,8 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { Dropdown } from '../../../shared/ui/Dropdown/Dropdown';
+import { Popover } from '../../../shared/ui/Popups';
+import { Dropdown } from '../../../shared/ui/Popups/ui/Dropdown/Dropdown';
 import { Avatar } from '../../../shared/ui/Avatar/Avatar';
 import { Text, TextTheme } from '../../../shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from '../../../shared/ui/appLink/AppLink';
@@ -13,6 +14,10 @@ import { LoginModal } from '../../../features/AuthByUsername/ui';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import clss from './Navbar.module.scss';
 import { Button, ButtonTheme } from '../../../shared/ui/Button/Button';
+import { HStack } from '../../../shared/ui/Stack';
+import { Icon } from '../../../shared/ui/Icon/Icon';
+import NotificationIcon from '../../../shared/assets/icons/notification-20-20.svg';
+import { NotificationList } from '../../../entities/Notification';
 
 interface NavbarProps {
     className?: string;
@@ -49,27 +54,39 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     {t('Create a new article')}
                 </AppLink>
 
-                <Dropdown
-                    direction="bottom left"
-                    className={clss.dropdown}
-                    trigger={<Avatar size={30} src={authData.avatar} />}
-                    items={[
+                <HStack gap="16" className={clss.actions}>
+                    <Popover
+                        direction="bottom left"
+                        trigger={(
+                            <Button theme={ButtonTheme.CLEAR}>
+                                <Icon Svg={NotificationIcon} inverted />
+                            </Button>
+                        )}
+                    >
+                        <NotificationList />
+                    </Popover>
 
-                        ...(isAdminPanelAvailable ? [{
-                            content: t('Admin Panel'),
-                            href: RoutePath.admin_panel,
-                        }] : []), // разворачиваем массив и в нем условие, если isAdminPanelAvailable,
-                        // то у нас отрисовывается массив с админ панелью, если нет, то пустой
-                        {
-                            content: t('Profile'),
-                            href: RoutePath.profile + authData.id,
-                        },
-                        {
-                            content: t('Sign out'),
-                            onClick: onLogOut,
-                        },
-                    ]}
-                />
+                    <Dropdown
+                        direction="bottom left"
+                        trigger={<Avatar size={30} src={authData.avatar} />}
+                        items={[
+
+                            ...(isAdminPanelAvailable ? [{
+                                content: t('Admin Panel'),
+                                href: RoutePath.admin_panel,
+                            }] : []), // разворачиваем массив и в нем условие, если isAdminPanelAvailable,
+                            // то у нас отрисовывается массив с админ панелью, если нет, то пустой
+                            {
+                                content: t('Profile'),
+                                href: RoutePath.profile + authData.id,
+                            },
+                            {
+                                content: t('Sign out'),
+                                onClick: onLogOut,
+                            },
+                        ]}
+                    />
+                </HStack>
             </header>
         );
     }
