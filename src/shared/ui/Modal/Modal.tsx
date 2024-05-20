@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import { useTheme } from '../../../app/providers/themeProvider';
 import { classNames, Mods } from '../../../shared/lib/classNames/classNames';
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import clss from './Modal.module.scss';
 
@@ -50,6 +51,17 @@ export function Modal(props: ModalProps) {
     };
 
     return (
+    // <Portal>
+    //     <div className={classNames(clss.Modal, mods, [className, theme, 'app_modal'])}>
+    //         <Overlay onClick={closeHandler} />
+    //         <div
+    //             className={clss.content}
+    //         >
+    //             {children}
+    //         </div>
+    //     </div>
+    // </Portal>
+
         <Portal>
             <div className={classNames(clss.modal, mods, [className])}>
                 <div className={clss.overlay} onClick={closeHandler}>

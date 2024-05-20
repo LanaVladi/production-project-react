@@ -1,4 +1,4 @@
-.modal {
+.Modal {
     position: fixed;
     top: 0;
     right: 0;
@@ -9,6 +9,9 @@
     transition: opacity 0.3s, z-index 0s 0.3s; // animation
     pointer-events: none;
     color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .overlay {
