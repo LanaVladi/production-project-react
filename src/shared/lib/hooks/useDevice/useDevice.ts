@@ -14,3 +14,5 @@ export const useDevice = () => {
 
     return isMobile;
 };
+
+// вариант разделения вью вместо библиотеки
