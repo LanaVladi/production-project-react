@@ -5,6 +5,7 @@ import { Icon } from '../../../../shared/ui/Icon/Icon';
 import NotificationIcon from '../../../../shared/assets/icons/notification-20-20.svg';
 import { NotificationList } from '../../../../entities/Notification';
 import { Popover } from '../../../../shared/ui/Popups';
+import { Drawer } from '../../../../shared/ui/Drawer/Drawer';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
@@ -17,6 +18,10 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 
     const onOpenDrawer = useCallback(() => {
         setIsOpen(true);
+    }, []);
+
+    const onCloseDrawer = useCallback(() => {
+        setIsOpen(false);
     }, []);
 
     const trigger = (
@@ -34,7 +39,10 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             >
                 <NotificationList className={cls.notifications} />
             </Popover>
-
+            {trigger}
+            <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                <NotificationList />
+            </Drawer>
         </div>
 
     );

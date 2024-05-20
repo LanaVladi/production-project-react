@@ -1,9 +1,6 @@
-/* eslint-disable i18next/no-literal-string */
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { NotificationList } from '../../../entities/Notification';
-import { Drawer } from '../../../shared/ui/Drawer/Drawer';
 import { Text, TextTheme } from '../../../shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from '../../../shared/ui/appLink/AppLink';
 import { RoutePath } from '../../../shared/config/routerConfig/routerConfig';
@@ -25,16 +22,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    const onOpenDrawer = useCallback(() => {
-        setIsOpen(true);
-    }, []);
-
-    const onCloseDrawer = useCallback(() => {
-        setIsOpen(false);
-    }, []);
-
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
     }, []);
@@ -52,8 +39,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 </AppLink>
 
                 <HStack gap="16" className={clss.actions}>
-                    <Button onClick={onOpenDrawer}>click</Button>
-                    <Drawer isOpen={isOpen} onClose={onCloseDrawer}><NotificationList /></Drawer>
                     <NotificationButton />
                     <AvatarDropdown />
                 </HStack>
