@@ -47,3 +47,9 @@
     color: aquamarine;
     font-size: var(--font-line-m);
 }
+
+.isClosing {
+    .content {
+        transform: scale(0.2);
+    }
+}
