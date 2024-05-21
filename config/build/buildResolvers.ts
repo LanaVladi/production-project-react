@@ -7,7 +7,9 @@ export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
         // preferAbsolute: true,
         // modules: [options.paths.src, 'node-modules'],
         // mainFiles: ['index'],
-        // alias: {},
+        // alias: {
+        //     // '@': options.paths.src, // алиасы для абсолютных путей
+        // },
         // fallback: {
         //     events: require.resolve('events/'),
         //     // events: false,
