@@ -17,7 +17,7 @@ export const StarRating = memo((props: StarRatingProps) => {
     const {
         className, size = 30, selectedStars = 0, onSelect,
     } = props;
-    const [currentStarsCount, setCurrentStarsCount] = useState(0); // на какую из звезд пользователь направил мышь
+    const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars); // на какую из звезд пользователь направил мышь
     // на 5-ую, подсвечиваются 5 звезд, на 2-ую - две
     const [isHovered, setIsHovered] = useState(false); // подсвечивать над какой звездой
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars)); // если пользователь выбрал количество звезд
