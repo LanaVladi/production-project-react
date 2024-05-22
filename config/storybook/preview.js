@@ -34,7 +34,7 @@ import {
 } from '../../src/shared/config/storybook/SuspenseDecorator';
 
 export const parameters = {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { argTypesRegex: '^on[A-Z].*' }, // настройка для работы экшенов (onClick, onChange,...)
     controls: {
         matchers: {
             color: /(background|color)$/i,
