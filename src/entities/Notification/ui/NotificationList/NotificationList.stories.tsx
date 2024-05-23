@@ -25,6 +25,7 @@ Normal.parameters = {
             method: 'GET',
             status: 200,
             response: notificationList,
+            delay: 2000, // чтобы скелетоны были показаны до загрузки
         },
     ],
 };
