@@ -29,8 +29,8 @@
 
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/themeProvider';
+import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator';
+import { Theme } from '../../../shared/const/theme';
 import AboutPage from './AboutPage';
 
 export default {

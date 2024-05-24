@@ -151,6 +151,13 @@ module.exports = {
         // 'sweetlanas-plugin/public-api-imports': ['error', { alias: '@' ,
         // testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
         // }], // если использовать алиасы
+        // 'ulbi-tv-plugin/layer-imports': [
+        //     'error',
+        //     {
+        //         alias: '@',
+        //         ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+        //     },
+        // ],
 
         // 'no-param-reassign': ['error', {
         //     props: true,

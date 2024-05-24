@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ProfilePage from '../../../pages/ProfilePage/ui/ProfilePage';
-import { Theme } from '../../../app/providers/themeProvider';
+import { Theme } from '../../../shared/const/theme';
 import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from '../../../shared/config/storybook/StoreDecorator';
 import { Currency } from '../../../entities/Currency';

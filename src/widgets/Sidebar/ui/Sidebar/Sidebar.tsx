@@ -1,9 +1,9 @@
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { ThemeSwitcher } from '../../../../widgets/ThemeSwitcher';
+import { ThemeSwitcher } from '../../../../features/ThemeSwitcher';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import clss from './Sidebar.module.scss';
-import { LangSwitcher } from '../../../../widgets/LangSwitcher';
+import { LangSwitcher } from '../../../../features/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from '../../../../shared/ui/Button/Button';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../../../widgets/Sidebar/model/selectors/getSidebarItems';
