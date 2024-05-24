@@ -7,8 +7,8 @@ import { Navbar } from '../widgets/Navbar';
 import { Sidebar } from '../widgets/Sidebar';
 import '../../src/shared/config/i18n/i18n';
 import { classNames } from '../shared/lib/classNames/classNames';
-import { useTheme } from './providers/themeProvider';
 import { getUserInited, userActions } from '../entities/User';
+import { useTheme } from '../shared/lib/hooks/useTheme/useTheme';
 
 function App() {
     const { theme } = useTheme();
