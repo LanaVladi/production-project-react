@@ -2,7 +2,7 @@
 import { useTranslation } from 'react-i18next';
 import { RatingCard } from '../../../entities/Rating';
 import { StarRating } from '../../../shared/ui/StarRating/StarRating';
-import { Page } from '../../../widgets/Page/Page';
+import { Page } from '../../../widgets/Page/ui/Page';
 
 function MainPage() {
     const { t } = useTranslation(); // === const { t } = useTranslation('translation');

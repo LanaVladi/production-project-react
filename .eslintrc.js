@@ -148,6 +148,9 @@ module.exports = {
         'linebreak-style': ['off', 'windows'],
         // 'sweetlanas-plugin/path-checker': 'error',
         // 'sweetlanas-plugin/path-checker': ['error', { alias: '@' }], // если использовать алиасы
+        // 'sweetlanas-plugin/public-api-imports': ['error', { alias: '@' ,
+        // testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+        // }], // если использовать алиасы
 
         // 'no-param-reassign': ['error', {
         //     props: true,
