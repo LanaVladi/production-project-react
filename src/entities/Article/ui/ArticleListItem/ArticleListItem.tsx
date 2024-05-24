@@ -4,7 +4,6 @@ import { Avatar } from '../../../../shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
 import { Card } from '../../../../shared/ui/Card/Card';
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg';
-import { RoutePath } from '../../../../shared/config/routerConfig/routerConfig';
 import { Icon } from '../../../../shared/ui/Icon/Icon';
 import { Text } from '../../../../shared/ui/Text/Text';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
@@ -13,6 +12,7 @@ import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { AppLink } from '../../../../shared/ui/appLink/AppLink';
+import { RoutePath } from '../../../../shared/const/router';
 
 interface ArticleListItemProps {
     className?: string;
