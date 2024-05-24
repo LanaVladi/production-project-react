@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '../../../../entities/User';
-import { RoutePath } from '../../../../shared/config/routerConfig/routerConfig';
+import { RoutePath } from '../../../../shared/const/router';
 import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import { getArticleDetailsData } from '../../../../entities/Article/model/selectors/articleDetails';

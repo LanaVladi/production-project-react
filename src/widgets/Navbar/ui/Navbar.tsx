@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Text, TextTheme } from '../../../shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from '../../../shared/ui/appLink/AppLink';
-import { RoutePath } from '../../../shared/config/routerConfig/routerConfig';
+import { RoutePath } from '../../../shared/const/router';
 import { getUserAuthData } from '../../../entities/User';
 import { LoginModal } from '../../../features/AuthByUsername/ui';
 import { classNames } from '../../../shared/lib/classNames/classNames';
