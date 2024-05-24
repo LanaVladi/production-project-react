@@ -10,7 +10,7 @@ import { classNames } from '../../../../shared/lib/classNames/classNames';
 import clss from './ArticlesPage.module.scss';
 import { getArticlesPageView } from '../../../../pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from '../../../../widgets/Page/Page';
+import { Page } from '../../../../widgets/Page/ui/Page';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '../../../../shared/const/localstorage';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';

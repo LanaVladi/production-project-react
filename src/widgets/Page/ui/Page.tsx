@@ -3,13 +3,13 @@ import {
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useThrottle } from '../../shared/lib/hooks/useThrottle/useThrottle';
-import { useInitialEffect } from '../../shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { StateSchema } from '../../app/providers/StoreProvider';
-import { getScrollRestorationByPath, scrollRestorationActions } from '../../features/ScrollRestoration';
-import { useAppDispatch } from '../../shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { classNames } from '../../shared/lib/classNames/classNames';
-import { useInfiniteScroll } from '../../shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useThrottle } from '../../../shared/lib/hooks/useThrottle/useThrottle';
+import { useInitialEffect } from '../../../shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { StateSchema } from '../../../app/providers/StoreProvider';
+import { getScrollRestorationByPath, scrollRestorationActions } from '../../../features/ScrollRestoration';
+import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from '../../../shared/lib/classNames/classNames';
+import { useInfiniteScroll } from '../../../shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import cls from './Page.module.scss';
 
 interface PageProps {
@@ -17,6 +17,8 @@ interface PageProps {
     children: ReactNode;
     onScrollEnd?: () => void;
 }
+
+export const PAGE_ID = 'PAGE_ID';
 
 export const Page = memo((props: PageProps) => {
     const { className, children, onScrollEnd } = props;
@@ -50,6 +52,7 @@ export const Page = memo((props: PageProps) => {
             ref={wrapperRef}
             className={classNames(cls.Page, {}, [className])}
             onScroll={scrollHandler}
+            id={PAGE_ID}
         >
             {children}
             {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
