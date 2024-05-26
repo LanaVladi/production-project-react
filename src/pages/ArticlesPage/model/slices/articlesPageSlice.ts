@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SortOrder } from '../../../../shared/types';
+import { SortOrder } from '../../../../shared/types/sort';
 import { StateSchema } from '../../../../app/providers/StoreProvider';
 import {
     Article, ArticleView, ArticleLimit, ArticleSortField, ArticleType,

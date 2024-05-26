@@ -10,7 +10,7 @@ function MainPage() {
     // 'translation' - namespace by default
 
     return (
-        <Page>
+        <Page data-testid="MainPage">
             {t('Main page')}
             <Counter />
             {/* <RatingCard feedbackTitle="Your feedback" hasFeedback /> */}
