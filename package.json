@@ -26,7 +26,8 @@
     "storybook:build": "build-storybook -c ./config/storybook",
     "prepare": "husky",
     "generate:FSD-slice": "node ./scripts/createSlice/index.js",
-    "analyze:build:prod": "webpack  --env mode=production analyze=true apiUrl=https://production-project-server-ten-livid.vercel.app"
+    "analyze:build:prod": "webpack  --env mode=production analyze=true apiUrl=https://production-project-server-ten-livid.vercel.app",
+    "postinstall": "rimraf ./node_modules/.cache"
   },
   "keywords": [],
   "author": "",

@@ -12,15 +12,13 @@ import { BuildOptions } from './types/config';
 export function buildPlugins({
     paths, isDev, apiUrl, project, analyze,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
+    const isProd = !isDev;
+
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
         }),
         new webpack.ProgressPlugin(),
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
-            chunkFilename: 'css/[name].[contenthash:8].css', // когда будем файлы разбивать на асинхронные
-        }),
 
         new webpack.DefinePlugin({
             GLOBAL_ISDEV: JSON.stringify(isDev),
@@ -29,11 +27,7 @@ export function buildPlugins({
             // This makes it possible for us to safely use env vars on our code
             // 'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
         }),
-        new CopyPlugin({
-            patterns: [
-                { from: paths.locales, to: paths.buildLocales },
-            ],
-        }),
+
         new ForkTsCheckerWebpackPlugin({
             typescript: {
                 diagnosticOptions: {
@@ -59,6 +53,19 @@ export function buildPlugins({
         plugins.push(new CircularDependencyPlugin({
             exclude: /node_modules/,
             failOnError: true,
+        }));
+    }
+
+    if (isProd) {
+        plugins.push(new MiniCssExtractPlugin({
+            filename: 'css/[name].[contenthash:8].css',
+            chunkFilename: 'css/[name].[contenthash:8].css', // когда будем файлы разбивать на асинхронные
+        }));
+
+        plugins.push(new CopyPlugin({
+            patterns: [
+                { from: paths.locales, to: paths.buildLocales },
+            ],
         }));
     }
 

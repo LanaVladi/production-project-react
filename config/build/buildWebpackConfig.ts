@@ -24,7 +24,8 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             rules: buildLoaders(options),
         },
         resolve: buildResolvers(options),
-        devtool: isDev ? 'inline-source-map' : undefined,
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined, // заменили 'inline-source-map' на 'eval-cheap-module-source-map',
+        // которые не так сильно нагружают сборку в dev режиме
         devServer: isDev ? buildDevServer(options) : undefined,
     };
 }
