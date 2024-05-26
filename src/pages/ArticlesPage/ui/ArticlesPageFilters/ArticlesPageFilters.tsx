@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { ArticleTypeTabs } from '../../../../features/ArticleTypeTabs';
 import { useDebounce } from '../../../../shared/lib/hooks/useDebounce/useDebounce';
 import { fetchArticlesList } from '../../../../pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
-import { SortOrder } from '../../../../shared/types';
+import { SortOrder } from '../../../../shared/types/sort';
 import { Card } from '../../../../shared/ui/Card/Card';
 import { Input } from '../../../../shared/ui/Input/Input';
 import { ArticleSortField, ArticleType, ArticleView } from '../../../../entities/Article';
