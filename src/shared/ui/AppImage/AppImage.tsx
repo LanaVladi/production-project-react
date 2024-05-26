@@ -15,7 +15,7 @@ export const AppImage = memo((props: AppImageProps) => {
         src,
         alt = 'image',
         fallback,
-        size = 1000,
+        size,
         errorFallback,
         ...otherProps
     } = props;
