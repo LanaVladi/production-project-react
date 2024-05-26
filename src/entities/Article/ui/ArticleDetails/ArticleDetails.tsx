@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { AppImage } from '../../../../shared/ui/AppImage';
 import { HStack, VStack } from '../../../../shared/ui/Stack';
 import { Icon } from '../../../../shared/ui/Icon/Icon';
 import { Avatar } from '../../../../shared/ui/Avatar/Avatar';
@@ -23,6 +24,7 @@ import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/Articl
 import { ArticleBlock } from '../../../../entities/Article/model/types/article';
 import { ArticleBlockType } from '../../../../entities/Article/model/consts/articleConsts';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import ListIcon from '../../../../shared/assets/icons/list-24-24.svg';
 
 interface ArticleDetailsProps {
    className?: string;
@@ -77,6 +79,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         }
     }, [dispatch, id]);
 
+    const errorFallback = <Icon width={100} height={100} Svg={ListIcon} />;
+
     let content;
 
     if (isLoading) {
@@ -100,7 +104,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = (
             <>
                 <HStack justify="center" max className={clss.avatarWrapper}>
-                    <Avatar size={200} src={article?.img} className={clss.avatar} />
+                    <AppImage errorFallback={errorFallback} src={article?.img} className={clss.articleImg} />
                 </HStack>
                 <VStack gap="4" max>
                     <Text
