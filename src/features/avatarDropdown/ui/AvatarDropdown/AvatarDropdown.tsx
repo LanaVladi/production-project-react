@@ -6,7 +6,7 @@ import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '../../../../entities/User';
 import { Avatar } from '../../../../shared/ui/Avatar/Avatar';
-import { RoutePath } from '../../../../shared/const/router';
+import { getRouteAdmin, getRouteProfile } from '../../../../shared/const/router';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 
 interface AvatarDropdownProps {
@@ -40,12 +40,12 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
                 ...(isAdminPanelAvailable ? [{
                     content: t('Admin Panel'),
-                    href: RoutePath.admin_panel,
+                    href: getRouteAdmin(),
                 }] : []), // разворачиваем массив и в нем условие, если isAdminPanelAvailable,
                 // то у нас отрисовывается массив с админ панелью, если нет, то пустой
                 {
                     content: t('Profile'),
-                    href: RoutePath.profile + authData.id,
+                    href: getRouteProfile(authData.id),
                 },
                 {
                     content: t('Sign out'),

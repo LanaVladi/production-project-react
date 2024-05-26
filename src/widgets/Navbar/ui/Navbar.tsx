@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Text, TextTheme } from '../../../shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from '../../../shared/ui/appLink/AppLink';
-import { RoutePath } from '../../../shared/const/router';
+import { getRouteArticleCreate } from '../../../shared/const/router';
 import { getUserAuthData } from '../../../entities/User';
 import { LoginModal } from '../../../features/AuthByUsername/ui';
 import { classNames } from '../../../shared/lib/classNames/classNames';
@@ -34,7 +34,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         return (
             <header className={classNames(clss.navbar, {}, [className])}>
                 <Text className={clss.appName} title={t('Ulbi TV App')} theme={TextTheme.INVERTED} />
-                <AppLink to={RoutePath.article_create} theme={AppLinkTheme.SECONDARY} className={clss.createBtn}>
+                <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY} className={clss.createBtn}>
                     {t('Create a new article')}
                 </AppLink>
 
