@@ -4,3 +4,8 @@
 # npm run test:unit
 # npm run storybook:build
 # npm run test:ui
+
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx lint-staged
