@@ -49,18 +49,21 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card className={cls.card}>
                     <div className={cls.header}>
-                        <AppImage errorFallback={errorFallback} src={article?.img} className={cls.articleImg} />
+                        {/* <AppImage size={200} errorFallback={errorFallback} src={article?.img} className={cls.articleImg} /> */}
+
+                        <Avatar size={30} src={article.user.avatar} className={cls.articleImg} />
                         <Text text={article.user.username} className={cls.username} />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <Text title={article.title} className={cls.title} />
                     {types}
-                    <AppImage
+                    {/* <AppImage
                         fallback={<Skeleton width="100%" height={250} />}
                         src={article.img}
                         className={cls.img}
                         alt={article.title}
-                    />
+                    /> */}
+                    <img src={article.img} className={cls.img} alt={article.title} />
                     {textBlock && (
                         <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     )}
@@ -88,12 +91,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         >
             <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
-                    <AppImage
+                    <img alt={article.title} src={article.img} className={cls.img} />
+                    {/* <AppImage
                         fallback={<Skeleton width={200} height={200} />}
                         alt={article.title}
                         src={article.img}
                         className={cls.img}
-                    />
+                    /> */}
                     <Text text={article.createdAt} className={cls.date} />
                 </div>
                 <div className={cls.infoWrapper}>

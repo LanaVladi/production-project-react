@@ -37,6 +37,12 @@
         max-height: 200px;
         overflow-y: hidden;
     }
+
+    .articleImg {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+    }
 }
 
 .GRID {
@@ -100,4 +106,12 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+    .articleImg {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+    }
 }
+
+

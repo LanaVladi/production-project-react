@@ -3,7 +3,7 @@ on:
   push:
     branches: [add-ci-pipeline]
   pull_request:
-    branches: [main, develop]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
