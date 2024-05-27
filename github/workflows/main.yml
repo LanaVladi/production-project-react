@@ -44,9 +44,9 @@
 name: linting, testing, building
 on:
   push:
-    branches: [ master ]
+    branches: [main, develop]
   pull_request:
-    branches: [ master ]
+    branches: [main, develop]
 permissions:
   contents: write
   pages: write
