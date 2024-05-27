@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Dropdown } from '../../../../shared/ui/Popups';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
@@ -8,6 +8,7 @@ import {
 import { Avatar } from '../../../../shared/ui/Avatar/Avatar';
 import { getRouteAdmin, getRouteProfile } from '../../../../shared/const/router';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
+import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -16,7 +17,7 @@ interface AvatarDropdownProps {
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const { className } = props;
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const isAdmin = useSelector(isUserAdmin);
     const isManager = useSelector(isUserManager);
     const authData = useSelector(getUserAuthData);

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, Suspense, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import { Text, TextSize } from '../../../../shared/ui/Text/Text';
 import { AddCommentForm } from '../../../../features/addCommentForm';
@@ -25,21 +26,21 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     const { t } = useTranslation();
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    // const onSendComment = useCallback((text: string) => {
-    //     dispatch(addCommentForArticle(text));
-    // }, [dispatch]);
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch]);
 
-    // useInitialEffect(() => {
-    //     dispatch(fetchCommentsByArticleId(id));
-    // });
+    useInitialEffect(() => {
+        dispatch(fetchCommentsByArticleId(id));
+    });
 
     return (
         <VStack gap="16" max className={classNames('', {}, [className])}>
             <Text size={TextSize.L} title={t('Comments')} />
             <Suspense fallback={<Loader />}>
-                {/* <AddCommentForm onSendComment={onSendComment} /> */}
+                <AddCommentForm onSendComment={onSendComment} />
             </Suspense>
             <CommentList
                 isLoading={commentsIsLoading}
