@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 import { data as notificationList } from '../../../../entities/Notification/mocks/data';
 import { StoreDecorator } from '../../../../shared/config/storybook/StoreDecorator';
 import { NotificationButton } from './NotificationButton';
@@ -10,7 +9,6 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [withMock],
 } as ComponentMeta<typeof NotificationButton>;
 
 const Template: ComponentStory<typeof NotificationButton> = (args) => <NotificationButton {...args} />;

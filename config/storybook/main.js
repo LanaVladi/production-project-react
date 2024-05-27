@@ -37,7 +37,7 @@ module.exports = {
             },
         }, // отключили настройки смены цвета, чтобы работал 'storybook-addon-themes'
         '@storybook/addon-interactions',
-        'storybook-addon-mock/register',
+        'storybook-addon-mock',
         'storybook-addon-themes',
     ],
     framework: '@storybook/react',
