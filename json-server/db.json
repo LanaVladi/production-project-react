@@ -652,6 +652,15 @@
         "password": "123",
         "roles": ["MANAGER"],
         "avatar": "https://www.apu.apus.edu/images/site/content/apu/supply-chain-manager.jpg"
+      },
+      {
+        "id": "4",
+        "username": "testuser",
+        "password": "123",
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
       }
     ],
     "profile": [
