@@ -27,19 +27,19 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const dispatch = useDispatch();
 
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+    // const onSendComment = useCallback((text: string) => {
+    //     dispatch(addCommentForArticle(text));
+    // }, [dispatch]);
 
-    useInitialEffect(() => {
-        dispatch(fetchCommentsByArticleId(id));
-    });
+    // useInitialEffect(() => {
+    //     dispatch(fetchCommentsByArticleId(id));
+    // });
 
     return (
         <VStack gap="16" max className={classNames('', {}, [className])}>
             <Text size={TextSize.L} title={t('Comments')} />
             <Suspense fallback={<Loader />}>
-                <AddCommentForm onSendComment={onSendComment} />
+                {/* <AddCommentForm onSendComment={onSendComment} /> */}
             </Suspense>
             <CommentList
                 isLoading={commentsIsLoading}
