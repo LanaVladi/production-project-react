@@ -46,7 +46,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         ) as ArticleTextBlock;
 
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div
+                data-testid="ArticleListItem"
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         {/* <AppImage size={200} errorFallback={errorFallback} src={article?.img} className={cls.articleImg} /> */}
@@ -85,6 +88,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
         <AppLink
+            data-testid="ArticleListItem"
             target={target}
             to={getRouteArticleDetails(article.id)}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}

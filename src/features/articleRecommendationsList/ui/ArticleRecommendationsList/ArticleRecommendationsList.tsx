@@ -20,7 +20,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     } // TO DO: обязательно необходимо обрабатывать ошибки и при isLoading использовать Loader
 
     return (
-        <VStack gap="8" className={classNames('', {}, [className])}>
+        <VStack data-testid="ArticleRecommendationsList" gap="8" className={classNames('', {}, [className])}>
             <Text
                 size={TextSize.L}
                 title={t('Recommendations')}

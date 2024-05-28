@@ -106,8 +106,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 <HStack justify="center" max className={clss.avatarWrapper}>
                     <AppImage size={200} errorFallback={errorFallback} src={article?.img} className={clss.articleImg} />
                 </HStack>
-                <VStack gap="4" max>
+                <VStack gap="4" max data-testid="ArticleDetails.Info">
                     <Text
+                        data-testid="ArticleDetails.Info.ArticleTitle"
                         title={article?.title}
                         text={article?.subtitle}
                         className={clss.title}
