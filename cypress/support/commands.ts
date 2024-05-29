@@ -6,6 +6,8 @@ import * as profileCommands from './commands/profile';
 import * as articleCommands from './commands/article';
 import * as commentsCommands from './commands/comments';
 import * as ratingCommands from './commands/rating';
+import * as searchCommands from './commands/search';
+import * as sortOrderCommands from './commands/sorting';
 
 // Cypress.Commands.add('login', login);
 Cypress.Commands.addAll(commonCommands);
@@ -13,6 +15,8 @@ Cypress.Commands.addAll(profileCommands);
 Cypress.Commands.addAll(articleCommands);
 Cypress.Commands.addAll(commentsCommands);
 Cypress.Commands.addAll(ratingCommands);
+Cypress.Commands.addAll(searchCommands);
+Cypress.Commands.addAll(sortOrderCommands);
 
 // const { FIXTURE_MODE } = process.env;
 // const fixtureName = req.method + req.url + hash(req.body);

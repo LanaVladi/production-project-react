@@ -67,19 +67,31 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     }, [dispatch, fetchData]);
 
     return (
-        <div className={classNames(clss.articlesPageFilters, {}, [className])}>
-
+        <div
+            className={classNames(clss.articlesPageFilters, {}, [className])}
+            data-testid="ArticlesPageFilters"
+        >
+            {/* <div className={clss.sortWrapper} data-testid="ArticlesPageFilters.ArticleSortViewSelector"> */}
             <div className={clss.sortWrapper}>
-                <ArticleSortSelector
-                    sort={sort}
-                    order={order}
-                    onChangeOrder={onChangeOrder}
-                    onChangeSort={onChangeSort}
-                />
-                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <div data-testid="ArticlesPageFilters.ArticleSortSelector">
+                    <ArticleSortSelector
+                        sort={sort}
+                        order={order}
+                        onChangeOrder={onChangeOrder}
+                        onChangeSort={onChangeSort}
+                    />
+                </div>
+                <div data-testid="ArticlesPageFilters.ArticleViewSelector">
+                    <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                </div>
             </div>
             <Card>
-                <Input value={search} onChange={onChangeSearch} placeholder={t('Search')} />
+                <Input
+                    data-testid="ArticlesPageFilters.SearchInput"
+                    value={search}
+                    onChange={onChangeSearch}
+                    placeholder={t('Search')}
+                />
             </Card>
             <ArticleTypeTabs
                 value={type}
