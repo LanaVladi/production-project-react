@@ -55,20 +55,28 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     // }, [onChangeOrder]);
 
     return (
-        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-            <Select<ArticleSortField>
-                options={sortFieldOptions}
-                label={t('Sort by')}
-                value={sort}
-                onChange={onChangeSort}
-            />
-            <Select<SortOrder>
-                options={orderOptions}
-                label={t('by')}
-                value={order}
-                onChange={onChangeOrder}
-                className={cls.order}
-            />
+        <div
+            className={classNames(cls.ArticleSortSelector, {}, [className])}
+            data-testid="ArticleSortSelector"
+
+        >
+            <div data-testid="ArticleSortSelector.SortByParams">
+                <Select<ArticleSortField>
+                    options={sortFieldOptions}
+                    label={t('Sort by')}
+                    value={sort}
+                    onChange={onChangeSort}
+                />
+            </div>
+            <div data-testid="ArticleSortSelector.SortByAscDesc">
+                <Select<SortOrder>
+                    options={orderOptions}
+                    label={t('by')}
+                    value={order}
+                    onChange={onChangeOrder}
+                    className={cls.order}
+                />
+            </div>
         </div>
     );
 });

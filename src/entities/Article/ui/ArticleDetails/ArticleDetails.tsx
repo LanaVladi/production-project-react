@@ -106,8 +106,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 <HStack justify="center" max className={clss.avatarWrapper}>
                     <AppImage size={200} errorFallback={errorFallback} src={article?.img} className={clss.articleImg} />
                 </HStack>
-                <VStack gap="4" max>
+                <VStack gap="4" max data-testid="ArticleDetails.Info">
                     <Text
+                        data-testid="ArticleDetails.Info.ArticleTitle"
                         title={article?.title}
                         text={article?.subtitle}
                         className={clss.title}
@@ -116,12 +117,14 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     <HStack gap="8" className={clss.articleInfo}>
                         <Icon className={clss.icon} Svg={EyeIcon} />
                         <Text
+                            data-testid="ArticleDetails.Info.ArticleViews"
                             title={String(article?.views)}
                         />
                     </HStack>
                     <HStack gap="8" className={clss.articleInfo}>
                         <Icon className={clss.icon} Svg={CalendarIcon} />
                         <Text
+                            data-testid="ArticleDetails.Info.ArticleCreatedAt"
                             title={String(article?.createdAt)}
                         />
                     </HStack>
