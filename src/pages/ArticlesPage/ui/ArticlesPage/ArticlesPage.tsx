@@ -8,7 +8,7 @@ import { articlesPageReducer } from '../../../../pages/ArticlesPage/model/slices
 import { ArticleView } from '../../../../entities/Article';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import clss from './ArticlesPage.module.scss';
-import { getArticlesPageView } from '../../../../pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { getArticlesPageView, useArticleItemById } from '../../../../pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '../../../../widgets/Page/ui/Page';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '../../../../shared/const/localstorage';
@@ -24,6 +24,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
     const view = useSelector(getArticlesPageView);
     const [searchParams] = useSearchParams();
+    // const data = useArticleItemById('7'); // buildSelector usage example
+    // console.log('data:', data);
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
