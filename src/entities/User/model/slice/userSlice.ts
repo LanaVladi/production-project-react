@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { setFeatureFlags } from '../../../../shared/lib/features';
 import { USER_LOCALSTORAGE_KEY } from '../../../../shared/const/localstorage';
 import { User, UserSchema } from '../types/user';
+import { JsonSettings } from '../types/jsonSettings';
+import { saveJsonSettings } from '../services/saveJsonSettings';
 
 const initialState: UserSchema = {
     _inited: false,
@@ -29,6 +31,16 @@ export const userSlice = createSlice({
             state.authData = undefined; // очищаем стейт
             localStorage.removeItem(USER_LOCALSTORAGE_KEY); // удаляем токен по ключу
         }, // при разлогировании данные из локалсторидж удаляем, имитация авторизации как будто мы храним какой-то токен
+    },
+    extraReducers: (builder) => {
+        builder.addCase(
+            saveJsonSettings.fulfilled,
+            (state, { payload }: PayloadAction<JsonSettings>) => {
+                if (state.authData) {
+                    state.authData.jsonSettings = payload;
+                }
+            },
+        );
     },
 });
 export const { actions: userActions } = userSlice;

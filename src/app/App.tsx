@@ -9,11 +9,16 @@ import '../../src/shared/config/i18n/i18n';
 import { classNames } from '../shared/lib/classNames/classNames';
 import { getUserInited, userActions } from '../entities/User';
 import { useTheme } from '../shared/lib/hooks/useTheme/useTheme';
+import { useJsonSettingsByKey } from '../entities/User/model/selectors/jsonSettings';
 
 function App() {
     const { theme } = useTheme();
     const dispatch = useDispatch();
     const inited = useSelector(getUserInited);
+    // const themeFromSettings = useJsonSettingsByKey('theme');
+    // console.log('themeFromSettings:', themeFromSettings);
+    // const isFirstVisit = useJsonSettingsByKey('isFirstVisit');
+    // console.log('isFirstVisit:', isFirstVisit);
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
