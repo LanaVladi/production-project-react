@@ -146,6 +146,8 @@ module.exports = {
         'no-undef': 'off',
         'arrow-body-style': 'off',
         'linebreak-style': ['off', 'windows'],
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+        'react/no-unstable-nested-components': 'warn',
         // 'sweetlanas-plugin/path-checker': 'error',
         // 'sweetlanas-plugin/path-checker': ['error', { alias: '@' }], // если использовать алиасы
         // 'sweetlanas-plugin/public-api-imports': ['error', { alias: '@' ,
