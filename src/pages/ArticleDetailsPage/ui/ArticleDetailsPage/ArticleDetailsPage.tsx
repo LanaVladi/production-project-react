@@ -12,7 +12,7 @@ import { VStack } from '../../../../shared/ui/Stack';
 import { ArticleRecommendationsList } from '../../../../features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '../../../../features/articleRating';
-import { getFeatureFlag, toggleFeatures } from '../../../../shared/lib/features';
+import { getFeatureFlag, ToggleFeatures, toggleFeatures } from '../../../../shared/lib/features';
 import { Counter } from '../../../../entities/Counter';
 import { Card } from '../../../../shared/ui/Card/Card';
 
@@ -37,11 +37,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         return null;
     }
 
-    const articleRatingCard = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => <Card>{t('Оценка статей скоро появится!')}</Card>,
-    });
+    // const articleRatingCard = toggleFeatures({
+    //     name: 'isArticleRatingEnabled',
+    //     on: () => <ArticleRating articleId={id} />,
+    //     off: () => <Card>{t('Оценка статей скоро появится!')}</Card>,
+    // });
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -56,7 +56,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     {/* {isCounterEnabled && <Counter />}
                      {isArticleRatingEnabled && <ArticleRating articleId={id} />} 2) */}
 
-                    {articleRatingCard}
+                    {/* {articleRatingCard} */}
+
+                    <ToggleFeatures
+                        feature="isArticleRatingEnabled"
+                        on={<ArticleRating articleId={id} />}
+                        off={<Card>{t('Оценка статей скоро появится!')}</Card>}
+                    />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
