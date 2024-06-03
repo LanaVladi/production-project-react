@@ -699,7 +699,8 @@
       "jsonSettings": {
         "theme": "app_orange_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpened": true
       }
     },
     {
@@ -726,7 +727,10 @@
         "isArticleRatingEnabled": false,
         "isCounterEnabled": true
       },
-      "avatar": "https://www.apu.apus.edu/images/site/content/apu/supply-chain-manager.jpg"
+      "avatar": "https://www.apu.apus.edu/images/site/content/apu/supply-chain-manager.jpg",
+      "jsonSettings": {
+        "isArticlesPageWasOpened": true
+      }
     },
     {
       "id": "4",
