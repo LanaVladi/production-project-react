@@ -14,6 +14,7 @@ import { Page } from '../../../../widgets/Page/ui/Page';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '../../../../shared/const/localstorage';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { ArticlePageGreeting } from '../../../../features/articlePageGreeting';
 
 interface ArticlesPageProps {
    className?: string;
@@ -51,6 +52,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             >
                 <ArticlesPageFilters />
                 <ArticleInfiniteList className={clss.list} />
+                <ArticlePageGreeting />
             </Page>
         </DynamicModuleLoader>
     );

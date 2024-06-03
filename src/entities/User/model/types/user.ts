@@ -1,5 +1,6 @@
 import { FeatureFlags } from '../../../../shared/types/featureFlags';
 import { UserRole } from '../consts/userConsts';
+import { JsonSettings } from './jsonSettings';
 
 export interface User {
     id: string;
@@ -7,6 +8,7 @@ export interface User {
     avatar?: string;
     roles?: UserRole[]; // обязательный или нет в зависимоости от того, как устроен бекенд, возвращает ли он всегда массив ролей
     features?: FeatureFlags;
+    jsonSettings?: JsonSettings;
 }
 
 export interface UserSchema {

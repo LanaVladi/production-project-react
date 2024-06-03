@@ -26,6 +26,7 @@
 
 import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
+import { StoreDecorator } from '../../src/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator';
 import { Theme } from '../../src/shared/const/theme';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
@@ -56,3 +57,4 @@ addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
 addDecorator(SuspenseDecorator);
+addDecorator(StoreDecorator({ user: {} }));
